@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.OrderProductMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.OrderProduct">
+    <!-- WARNING - @mbg.generated -->
+    <id column="policyNo" jdbcType="VARCHAR" property="policyno" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="policyowner" jdbcType="VARCHAR" property="policyowner" />
+    <result column="corporation" jdbcType="VARCHAR" property="corporation" />
+    <result column="moneytype" jdbcType="SMALLINT" property="moneytype" />
+    <result column="payage" jdbcType="SMALLINT" property="payage" />
+    <result column="premium" jdbcType="REAL" property="premium" />
+    <result column="coverage" jdbcType="REAL" property="coverage" />
+    <result column="pattern" jdbcType="SMALLINT" property="pattern" />
+    <result column="feeid" jdbcType="INTEGER" property="feeid" />
+    <result column="richeid" jdbcType="INTEGER" property="richeid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    policyNo, productname, policyowner, corporation, moneytype, payage, premium, coverage, pattern, feeid, richeid, state, addtime
+  </sql>
+  
+</mapper>

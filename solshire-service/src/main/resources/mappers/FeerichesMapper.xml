@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.FeerichesMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.Feeriches">
+    <!-- WARNING - @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="policyNo" jdbcType="VARCHAR" property="policyno" />
+    <result column="fee" jdbcType="REAL" property="fee" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="richeid" jdbcType="INTEGER" property="richeid" />
+    <result column="minus" jdbcType="REAL" property="minus" />
+    <result column="exchange" jdbcType="REAL" property="exchange" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="paytime" jdbcType="TIMESTAMP" property="paytime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    id, policyNo, fee, type, richeid, minus, exchange, state, remark, paytime
+  </sql>
+  
+</mapper>

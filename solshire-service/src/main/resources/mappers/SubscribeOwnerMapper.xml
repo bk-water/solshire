@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.SubscribeOwnerMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.SubscribeOwner">
+    <!-- WARNING - @mbg.generated -->
+    <id column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="subscribe" jdbcType="TIMESTAMP" property="subscribe" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="sex" jdbcType="SMALLINT" property="sex" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="educate" jdbcType="SMALLINT" property="educate" />
+    <result column="marriage" jdbcType="SMALLINT" property="marriage" />
+    <result column="smoke" jdbcType="SMALLINT" property="smoke" />
+    <result column="paytype" jdbcType="INTEGER" property="paytype" />
+    <result column="continuepay" jdbcType="INTEGER" property="continuepay" />
+    <result column="stature" jdbcType="REAL" property="stature" />
+    <result column="weight" jdbcType="REAL" property="weight" />
+    <result column="certifyNo" jdbcType="VARCHAR" property="certifyno" />
+    <result column="permitNo" jdbcType="VARCHAR" property="permitno" />
+    <result column="certifyAddr" jdbcType="VARCHAR" property="certifyaddr" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="corporation" jdbcType="VARCHAR" property="corporation" />
+    <result column="site" jdbcType="VARCHAR" property="site" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="salary" jdbcType="INTEGER" property="salary" />
+    <result column="file" jdbcType="VARCHAR" property="file" />
+    <result column="planid" jdbcType="INTEGER" property="planid" />
+    <result column="richeid" jdbcType="INTEGER" property="richeid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="gohktime" jdbcType="DATE" property="gohktime" />
+    <result column="leavehktime" jdbcType="DATE" property="leavehktime" />
+    <result column="groupNum" jdbcType="INTEGER" property="groupnum" />
+    <result column="haschild" jdbcType="INTEGER" property="haschild" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    orderid, subscribe, name, Ename, birthday, sex, tel, nation, educate, marriage, smoke, paytype, continuepay, stature, weight, certifyNo, permitNo, certifyAddr, address, corporation, site, title, email, salary, file, planid, richeid, state, gohktime, leavehktime, groupNum, haschild, remark, addtime
+  </sql>
+  
+</mapper>

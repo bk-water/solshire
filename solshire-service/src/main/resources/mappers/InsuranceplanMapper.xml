@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.InsuranceplanMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.Insuranceplan">
+    <!-- WARNING - @mbg.generated -->
+    <id column="planid" jdbcType="INTEGER" property="planid" />
+    <result column="sex" jdbcType="SMALLINT" property="sex" />
+    <result column="smoke" jdbcType="SMALLINT" property="smoke" />
+    <result column="brithday" jdbcType="DATE" property="brithday" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="retrospect" jdbcType="SMALLINT" property="retrospect" />
+    <result column="region" jdbcType="SMALLINT" property="region" />
+    <result column="corporation" jdbcType="VARCHAR" property="corporation" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="payage" jdbcType="SMALLINT" property="payage" />
+    <result column="paytype" jdbcType="SMALLINT" property="paytype" />
+    <result column="money" jdbcType="INTEGER" property="money" />
+    <result column="currency" jdbcType="SMALLINT" property="currency" />
+    <result column="file" jdbcType="VARCHAR" property="file" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    planid, sex, smoke, brithday, age, retrospect, region, corporation, productname, payage, paytype, money, currency, file, addtime
+  </sql>
+  
+</mapper>

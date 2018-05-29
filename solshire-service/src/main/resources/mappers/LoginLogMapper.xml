@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.LoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.LoginLog">
+    <!-- WARNING - @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="loginIp" jdbcType="VARCHAR" property="loginip" />
+    <result column="sysInfo" jdbcType="VARCHAR" property="sysinfo" />
+    <result column="loginTime" jdbcType="TIMESTAMP" property="logintime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    id, name, token, loginIp, sysInfo, loginTime
+  </sql>
+  
+</mapper>

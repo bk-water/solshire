@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.RichesMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.Riches">
+    <!-- WARNING - @mbg.generated -->
+    <id column="richeid" jdbcType="INTEGER" property="richeid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="certifyNo" jdbcType="VARCHAR" property="certifyno" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="sex" jdbcType="SMALLINT" property="sex" />
+    <result column="state" jdbcType="SMALLINT" property="state" />
+    <result column="bankcardid" jdbcType="VARCHAR" property="bankcardid" />
+    <result column="bankcardname" jdbcType="VARCHAR" property="bankcardname" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="openID" jdbcType="VARCHAR" property="openid" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="master" jdbcType="INTEGER" property="master" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    richeid, name, realname, certifyNo, tel, sex, state, bankcardid, bankcardname, pwd, openID, img, flag, email, remark, master, token, addtime
+  </sql>
+  
+</mapper>

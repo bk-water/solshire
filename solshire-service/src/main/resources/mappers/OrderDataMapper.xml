@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.OrderDataMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.OrderData">
+    <!-- WARNING - @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="policyNo" jdbcType="INTEGER" property="policyno" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="Ename" jdbcType="VARCHAR" property="ename" />
+    <result column="brithday" jdbcType="DATE" property="brithday" />
+    <result column="sex" jdbcType="SMALLINT" property="sex" />
+    <result column="tel" jdbcType="INTEGER" property="tel" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="educate" jdbcType="SMALLINT" property="educate" />
+    <result column="marriage" jdbcType="SMALLINT" property="marriage" />
+    <result column="smoke" jdbcType="SMALLINT" property="smoke" />
+    <result column="stature" jdbcType="REAL" property="stature" />
+    <result column="weight" jdbcType="REAL" property="weight" />
+    <result column="certifyNo" jdbcType="VARCHAR" property="certifyno" />
+    <result column="permitNo" jdbcType="VARCHAR" property="permitno" />
+    <result column="certifyAddr" jdbcType="VARCHAR" property="certifyaddr" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="corporation" jdbcType="VARCHAR" property="corporation" />
+    <result column="site" jdbcType="VARCHAR" property="site" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="salary" jdbcType="INTEGER" property="salary" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="relation" jdbcType="SMALLINT" property="relation" />
+    <result column="flag" jdbcType="SMALLINT" property="flag" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    id, policyNo, name, Ename, brithday, sex, tel, nation, educate, marriage, smoke, stature, weight, certifyNo, permitNo, certifyAddr, address, corporation, site, title, salary, email, relation, flag
+  </sql>
+  
+</mapper>

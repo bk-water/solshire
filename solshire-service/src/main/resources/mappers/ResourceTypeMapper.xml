@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.ResourceTypeMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.ResourceType">
+    <!-- WARNING - @mbg.generated -->
+    <id column="resid" jdbcType="INTEGER" property="resid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="hide" jdbcType="INTEGER" property="hide" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    resid, name, image, pid, sort, hide
+  </sql>
+  
+</mapper>

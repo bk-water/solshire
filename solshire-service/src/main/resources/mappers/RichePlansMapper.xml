@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.RichePlansMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.RichePlans">
+    <!-- WARNING - @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="planid" jdbcType="INTEGER" property="planid" />
+    <result column="attach" jdbcType="VARCHAR" property="attach" />
+    <result column="return" jdbcType="SMALLINT" property="return" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="richeid" jdbcType="INTEGER" property="richeid" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    id, planid, attach, return, remark, addtime, richeid
+  </sql>
+  
+</mapper>

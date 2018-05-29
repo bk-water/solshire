@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.ResourceFileMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.ResourceFile">
+    <!-- WARNING - @mbg.generated -->
+    <id column="fileid" jdbcType="INTEGER" property="fileid" />
+    <result column="resid" jdbcType="INTEGER" property="resid" />
+    <result column="filename" jdbcType="VARCHAR" property="filename" />
+    <result column="filepath" jdbcType="VARCHAR" property="filepath" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    fileid, resid, filename, filepath, sort, author, addtime
+  </sql>
+  
+</mapper>

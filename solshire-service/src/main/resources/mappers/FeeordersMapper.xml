@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.FeeordersMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.Feeorders">
+    <!-- WARNING - @mbg.generated -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="policyNo" jdbcType="VARCHAR" property="policyno" />
+    <result column="times" jdbcType="INTEGER" property="times" />
+    <result column="value" jdbcType="REAL" property="value" />
+    <result column="receive" jdbcType="REAL" property="receive" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    id, policyNo, times, value, receive, addtime
+  </sql>
+  
+</mapper>

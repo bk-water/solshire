@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solshire.mapper.UserAdminMapper">
+  <resultMap id="BaseResultMap" type="com.solshire.model.domain.UserAdmin">
+    <!-- WARNING - @mbg.generated -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="pswd" jdbcType="VARCHAR" property="pswd" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="status" jdbcType="BIGINT" property="status" />
+  </resultMap>
+  
+  <sql id="BaseColumns">
+    <!-- WARNING - @mbg.generated -->
+    id, nickname, email, pswd, create_time, last_login_time, status
+  </sql>
+  
+</mapper>

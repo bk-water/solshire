@@ -7,19 +7,16 @@ CREATE TABLE `user_permission` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `url` varchar(256) DEFAULT NULL COMMENT 'url地址',
   `name` varchar(64) DEFAULT NULL COMMENT 'url描述',
+  `parentId` bigint(20) NOT NULL COMMENT '父节点id',
+  `code` varchar(64) DEFAULT NULL COMMENT '权限code',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of u_permission
--- ----------------------------
-INSERT INTO `user_permission` VALUES ('1', '/user', 'usermanager');
 
 -- ----------------------------
 -- Table structure for `u_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role`;
-CREATE TABLE `u_role` (
+CREATE TABLE `user_role` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) DEFAULT NULL COMMENT '角色名称',
   `type` varchar(10) DEFAULT NULL COMMENT '角色类型',
@@ -27,23 +24,15 @@ CREATE TABLE `u_role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of u_role
--- ----------------------------
-INSERT INTO `user_role` VALUES ('1', 'admin', '1');
-
--- ----------------------------
 -- Table structure for `u_role_permission`
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role_permission`;
 CREATE TABLE `user_role_permission` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `rid` bigint(20) DEFAULT NULL COMMENT '角色ID',
-  `pid` bigint(20) DEFAULT NULL COMMENT '权限ID'
+  `pid` bigint(20) DEFAULT NULL COMMENT '权限ID',
+   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of u_role_permission
--- ----------------------------
-INSERT INTO `user_role_permission` VALUES ('1', '1');
 
 -- ----------------------------
 -- Table structure for `u_user`
@@ -70,11 +59,8 @@ INSERT INTO `user_admin` VALUES ('1', 'admin', null, '123456', '2017-05-10 20:22
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role_rel`;
 CREATE TABLE `user_role_rel` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `uid` bigint(20) DEFAULT NULL COMMENT '用户ID',
-  `rid` bigint(20) DEFAULT NULL COMMENT '角色ID'
+  `rid` bigint(20) DEFAULT NULL COMMENT '角色ID',
+   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of u_user_role
--- ----------------------------
-INSERT INTO `user_role_rel` VALUES ('1', '1');

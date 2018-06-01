@@ -30,7 +30,7 @@ public class RichePlans implements Serializable {
     /**
      * 提取演示（N年后可提取）
      */
-    private Short return;
+    private Short returnS;
 
     /**
      * 备注（个性化提取演示）
@@ -55,7 +55,7 @@ public class RichePlans implements Serializable {
                 .add("id", id)
                 .add("planid", planid)
                 .add("attach", attach)
-                .add("return", return)
+                .add("return", returnS)
                 .add("remark", remark)
                 .add("addtime", addtime)
                 .add("richeid", richeid)

@@ -14,12 +14,12 @@ logging:
 
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:file:./samples
-    username: root
-    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.75.10.26:3306/solshire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    username: cyd1991
+    password: MY78sdQPl11!
     druid:
       initial-size: 1
       min-idle: 1
       max-active: 10
-    schema: classpath:import.sql
+#    schema: classpath:import.sql

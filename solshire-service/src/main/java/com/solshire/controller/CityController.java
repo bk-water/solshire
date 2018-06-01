@@ -2,6 +2,7 @@ package com.solshire.controller;
 
 import com.solshire.model.domain.City;
 import com.solshire.service.CityService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/city", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Slf4j
+@Api(tags = "Admin")
 public class CityController {
 
     @Autowired

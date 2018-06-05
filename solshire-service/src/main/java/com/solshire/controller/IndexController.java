@@ -1,6 +1,6 @@
 package com.solshire.controller;
 
-import com.solshire.util.Result;
+import com.solshire.util.ResultBase;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -21,14 +21,20 @@ public class IndexController {
 
     @ApiOperation("登入用户登入")
     @PostMapping("login")
-    public Result login(String userName, String password) {
-        return Result.success();
+    public ResultBase login(String userName, String password) {
+        return ResultBase.instance().success();
     }
 
     @ApiOperation("用户登出")
     @PostMapping("loginOut")
-    public Result loginOut() {
-        return Result.success();
+    public ResultBase loginOut() {
+        return ResultBase.instance().success();
     }
+
+    // 找回密码
+
+    // 验证码
+
+
 
 }

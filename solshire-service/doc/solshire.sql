@@ -64,3 +64,14 @@ CREATE TABLE `user_role_rel` (
   `rid` bigint(20) DEFAULT NULL COMMENT '角色ID',
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 后台用户登入日志
+DROP TABLE IF EXISTS `user_admin_login_log`;
+CREATE TABLE `user_admin_login_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(20) DEFAULT NULL COMMENT '用户昵称',
+  `email` varchar(128) DEFAULT NULL COMMENT '邮箱|登录帐号',
+  `login_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `login_ip` varchar(128) DEFAULT '1' COMMENT '登入IP',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;

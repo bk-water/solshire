@@ -10,16 +10,18 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Result {
-    // 返回状态码仿照http 状态码
-    private String code;
-    private String msg;
+public class Result<T> extends ResultBase{
 
-    public static Result success() {
-        Result result = new Result();
-        result.code = "200";
-        result.msg = "Success";
-        return result;
+    private T data;
+
+    public  Result success(T data) {
+        super.success();
+        this.data = data;
+        return this;
+    }
+
+    public static <T> Result<T> instance(Class<T> iclazz) {
+        return new Result<>();
     }
 
 }

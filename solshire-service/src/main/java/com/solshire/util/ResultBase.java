@@ -3,8 +3,6 @@ package com.solshire.util;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 /**
  * @Author koabs
  * @Date 2018/5/30.
@@ -12,18 +10,48 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class ResultBase<T> {
+public class ResultBase {
     // 返回状态码仿照http 状态码
     private String code;
     private String msg;
-    private List<T> data;
 
-    public static <T> ResultBase success(List list,T t) {
-        ResultBase<T> result = new ResultBase();
-        result.code = "200";
-        result.msg = "Success";
-        result.data = list;
-        return result;
+    public static ResultBase instance() {
+        return new ResultBase();
     }
 
+    public ResultBase success() {
+        this.code = "200";
+        this.msg = "Success";
+        return this;
+    }
+
+    public ResultBase success(String msg) {
+        this.code = "200";
+        this.msg = msg;
+        return this;
+    }
+
+    public ResultBase fail() {
+        this.code = "500";
+        this.msg = "Fail";
+        return this;
+    }
+
+    public ResultBase fail(String msg) {
+        this.code = "500";
+        this.msg = msg;
+        return this;
+    }
+
+    public ResultBase noPermissions() {
+        this.code = "403";
+        this.msg = "no permissions!";
+        return this;
+    }
+
+    public ResultBase noPermissions(String msg) {
+        this.code = "403";
+        this.msg = msg;
+        return this;
+    }
 }

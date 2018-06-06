@@ -4,8 +4,6 @@ import com.google.common.base.MoreObjects;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
-
-import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @NoArgsConstructor
@@ -19,7 +17,6 @@ public class UserAdmin implements Serializable {
     /**
      * 用户昵称
      */
-    @ApiModelProperty(notes = "用户昵称")
     private String nickname;
 
     /**

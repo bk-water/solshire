@@ -1,13 +1,16 @@
 package com.solshire.controller;
 
 import com.solshire.model.domain.UserAdmin;
+import com.solshire.model.domain.UserAdminLoginLog;
 import com.solshire.model.domain.UserPermission;
 import com.solshire.model.domain.UserRole;
+import com.solshire.service.UserPermissionService;
 import com.solshire.util.Result;
 import com.solshire.util.ResultBase;
 import com.solshire.util.ResultPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,6 +26,9 @@ import java.util.List;
 @Api(tags = "Admin")
 @RequestMapping("/")
 public class AdminController {
+
+    @Autowired
+    UserPermissionService userPermissionService;
 
     // 用户列表
     @ApiOperation("用户列表")
@@ -54,10 +60,20 @@ public class AdminController {
 
     // 用户拥有的目录树
     @ApiOperation("查询用户菜单树")
-    @GetMapping("admin/tree/{id}")
-    public ResultPage<UserPermission> queryPermissionsByUser(@PathVariable Integer id) {
-        List<UserPermission> list = new ArrayList<>();
+    @GetMapping("admin/tree")
+    public ResultPage<UserPermission> queryPermissionsByUser() {
+        // 获取当前登入用户菜单
+        List<UserPermission> list = userPermissionService.select(null);
         return ResultPage.instance(UserPermission.class).success(list);
+    }
+
+    // 后台用户登入记录
+    @ApiOperation("查询后台用户登入记录")
+    @GetMapping("admin/loginRecord")
+    public ResultPage<UserAdminLoginLog> queryUserAdminLoginLog() {
+        // 获取当前登入用户菜单
+        List<UserAdminLoginLog> list = new ArrayList<>();
+        return ResultPage.instance(UserAdminLoginLog.class).success(list);
     }
 
     @ApiOperation("给用户赋角色")
@@ -90,7 +106,4 @@ public class AdminController {
         List<UserPermission> list = new ArrayList<>();
         return ResultPage.instance(UserPermission.class).success(list);
     }
-
-    // 后台用户登入记录
-
 }

@@ -8,11 +8,12 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="parentId" jdbcType="BIGINT" property="parentid" />
     <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
   </resultMap>
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
-    id, url, name, parentId, code
+    id, url, name, parentId, code, type
   </sql>
   
 </mapper>

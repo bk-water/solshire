@@ -34,6 +34,11 @@ public class UserPermission implements Serializable {
      */
     private String code;
 
+    /**
+     * 判断是菜单还是按钮 1菜单 2按钮
+     */
+    private String type;
+
     private static final long serialVersionUID = 1L;
 
     @Override
@@ -44,6 +49,7 @@ public class UserPermission implements Serializable {
                 .add("name", name)
                 .add("parentid", parentid)
                 .add("code", code)
+                .add("type", type)
                 .toString();
     }
 }

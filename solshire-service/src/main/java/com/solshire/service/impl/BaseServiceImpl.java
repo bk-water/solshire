@@ -134,5 +134,4 @@ public abstract class BaseServiceImpl<T, PK extends Serializable> implements Bas
         List<T> selectList = mapper.select(record);
         return new PageInfo<>(selectList);
     }
-
 }

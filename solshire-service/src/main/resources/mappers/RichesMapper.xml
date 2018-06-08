@@ -22,10 +22,22 @@
     <result column="token" jdbcType="VARCHAR" property="token" />
     <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
   </resultMap>
+
+  <resultMap id="richesEntity" type="com.solshire.model.RichesEntity" extends="BaseResultMap">
+  </resultMap>
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
     richeid, name, realname, certifyNo, tel, sex, state, bankcardid, bankcardname, pwd, openID, img, flag, email, remark, master, token, addtime
   </sql>
+
+  <select id="queryByPage" parameterType="com.solshire.model.RichesQuery" resultMap="richesEntity">
+    SELECT <include refid="BaseColumns"/> FROM sol_riches
+    <where>
+      <if test="beginDate != null">
+        addtime = #{beginDate}
+      </if>
+    </where>
+  </select>
   
 </mapper>

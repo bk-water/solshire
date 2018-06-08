@@ -40,7 +40,7 @@ public class Swagger2Config {
 
     private Tag[] getTags() {
         Tag[] tags = {
-                new Tag("book", "书相关的API"),
+                new Tag("User", "用户相关API"),
                 new Tag("dog", "狗相关")
         };
         return tags;

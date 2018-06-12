@@ -1,7 +1,9 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

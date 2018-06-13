@@ -23,3 +23,19 @@ spring:
       min-idle: 1
       max-active: 10
 #    schema: classpath:import.sql
+
+#t验证码生成
+  spring:
+      kaptcha:
+          enable: true
+          properties:
+            kaptcha.border: no
+            kaptcha.border.color: 105,179,90
+            kaptcha.textproducer.font.color: blue
+            kaptcha.image.width: "125"
+            kaptcha.image.height: "45"
+            kaptcha.textproducer.font.size: "45"
+            kaptcha.session.key: KAPTCHA_SESSION_KEY
+            kaptcha.textproducer.char.length: "4"
+            kaptcha.textproducer.font.names: 宋体,楷体,微软雅黑
+          suffix: suffix

@@ -1,5 +1,6 @@
 package com.solshire.controller;
 
+import com.solshire.model.UserAdminInfo;
 import com.solshire.model.domain.UserAdmin;
 import com.solshire.model.domain.UserAdminLoginLog;
 import com.solshire.model.domain.UserPermission;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 /**
  * @Author koabs
@@ -64,6 +66,8 @@ public class AdminController {
     public ResultPage<UserPermission> queryPermissionsByUser() {
         // 获取当前登入用户菜单
         List<UserPermission> list = userPermissionService.select(null);
+//        TreeSet<UserPermission> treeSet = new TreeSet<>();
+
         return ResultPage.instance(UserPermission.class).success(list);
     }
 
@@ -91,6 +95,7 @@ public class AdminController {
         List<UserPermission> list = new ArrayList<>();
         return ResultPage.instance(UserPermission.class).success(list);
     }
+
     // 角色列表
     @ApiOperation("角色列表")
     @GetMapping("roles")
@@ -103,7 +108,18 @@ public class AdminController {
     @ApiOperation("查询角色拥有的权限")
     @GetMapping("roles/permissions/{id}")
     public ResultPage<UserPermission> queryPermissionsByRole(@PathVariable Integer id) {
+        // 排序
         List<UserPermission> list = new ArrayList<>();
         return ResultPage.instance(UserPermission.class).success(list);
     }
+
+    @ApiOperation("用户登入首页")
+    @GetMapping("admin/index")
+    public Result<UserAdminInfo> adminIndex() {
+        List<UserPermission> list = new ArrayList<>();
+
+        return Result.instance(UserAdminInfo.class).success(new UserAdminInfo());
+    }
+
+
 }

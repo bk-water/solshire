@@ -27,17 +27,17 @@ public class CityController {
 
     @Autowired
     private CityService cityService;
-
-    @GetMapping("/get/{id}")
-    public ResponseEntity<City> getById(@PathVariable Integer id) {
-        City city = cityService.selectByPk(id);
-        return ResponseEntity.ok(city);
-    }
-
-    @GetMapping("/list/{ids}")
-    public ResponseEntity<List<City>> getByIds(@PathVariable List<Integer> ids) {
-        List<City> list = cityService.selectByIds(ids);
-        return ResponseEntity.ok(list);
-    }
+//
+//    @GetMapping("/get/{id}")
+//    public ResponseEntity<City> getById(@PathVariable Integer id) {
+//        City city = cityService.selectByPk(id);
+//        return ResponseEntity.ok(city);
+//    }
+//
+//    @GetMapping("/list/{ids}")
+//    public ResponseEntity<List<City>> getByIds(@PathVariable List<Integer> ids) {
+//        List<City> list = cityService.selectByIds(ids);
+//        return ResponseEntity.ok(list);
+//    }
 
 }

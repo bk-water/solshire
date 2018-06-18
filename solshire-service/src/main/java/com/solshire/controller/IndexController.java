@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ import java.awt.image.BufferedImage;
 @RestController
 @RequestMapping("/")
 @Slf4j
-@Api(tags = "Admin")
+@Api(tags = "Login")
 public class IndexController {
 
     // 验证码
@@ -48,7 +49,7 @@ public class IndexController {
     // 找回密码
 
     @ApiOperation("验证码")
-    @RequestMapping("/kaptcha/*")
+    @GetMapping("/kaptcha/*")
     public void getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
         response.setDateHeader("Expires", 0);
@@ -77,4 +78,5 @@ public class IndexController {
             out.close();
         }
     }
+
 }

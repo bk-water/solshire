@@ -23,6 +23,11 @@ public class RichesEntity extends Riches{
      */
     private String levelName;
 
+    /**
+     * 直属上级名称
+     */
+    private String directSupervisor;
+
 
     public String getLevelName() {
         return levelName;

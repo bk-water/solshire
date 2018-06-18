@@ -49,7 +49,7 @@ public class Riches implements Serializable {
     private Short sex;
 
     /**
-     * 状态：0正在审核，1正常，2已解约
+     * 状态：0正在审核，1正常，2已解约 3 删除
      */
     private Short state;
 
@@ -81,6 +81,7 @@ public class Riches implements Serializable {
 
     /**
      * 财富团队成员：bit0注册用户，bit1财富成员，bit2客户（保单持有人）
+     * (按位运算)
      */
     private Integer flag;
 

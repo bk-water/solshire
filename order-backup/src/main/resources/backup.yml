@@ -1,0 +1,34 @@
+
+mysql:
+  tables: table1,table2table3
+  backupdbs:
+  - ip:
+    port:
+    schema:
+    username:
+    password:
+    classDriver:
+    url:
+  - ip:
+    port:
+    schema:
+    username:
+    password:
+    classDriver:
+    url:
+  dump:
+    binPath:
+    month:
+    exportFolder:
+  monitordb:
+    url:
+    username:
+    password:
+    classDriver:
+greenplum:
+  ip:
+  port:
+  schema:
+  username:
+  password:
+  classDriver:

@@ -2,8 +2,6 @@ package com.segi.uhomecp.back.config;
 
 import com.google.common.base.Strings;
 import com.google.common.io.Resources;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
@@ -19,8 +17,6 @@ import java.util.Map;
  * 解析http2ice 配置文件
  */
 public class ICEYmalParse {
-
-    static Logger logger = LoggerFactory.getLogger(ICEYmalParse.class);
 
     public static String packageStr;
 
@@ -38,11 +34,9 @@ public class ICEYmalParse {
             try {
                 is.close();
             } catch (IOException e) {
-                logger.error("http2ice.yml 配置文件加载出错", e);
                 throw new RuntimeException("http2ice.yml 配置文件加载出错");
             }
         } else {
-            logger.error("http2ice.yml 配置文件不存在.");
             throw new RuntimeException("http2ice.yml 配置文件不存在.");
         }
         packageStr = (String) ymalMap.get("package");

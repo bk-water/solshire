@@ -40,7 +40,11 @@ public class Swagger2Config {
     private Tag[] getTags() {
         Tag[] tags = {
                 new Tag("User", "用户相关API"),
-                new Tag("dog", "狗相关")
+                new Tag("Login", "后台登入相关接口"),
+                new Tag("Riches","财富团队成员和注册用户模块"),
+                new Tag("APPAd","网站编辑"),
+                new Tag("Gen","上传文件等公共方法"),
+                new Tag("Sales","销售管理")
         };
         return tags;
     }

@@ -46,6 +46,8 @@ public class UserAdmin implements Serializable {
     @Column(name = "last_login_time")
     private Date lastLoginTime;
 
+
+
     /**
      * 1:有效，0:禁止登录
      */

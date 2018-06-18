@@ -39,3 +39,6 @@ spring:
             kaptcha.textproducer.char.length: "4"
             kaptcha.textproducer.font.names: 宋体,楷体,微软雅黑
           suffix: suffix
+upload:
+  path: /tmp/solshire
+  url: http://127.0.0.1:8080/

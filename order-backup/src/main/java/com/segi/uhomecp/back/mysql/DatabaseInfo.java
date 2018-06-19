@@ -24,6 +24,7 @@ public class DatabaseInfo extends Database{
 		return dbinfo;
 	}
 
+
 	/**
 	 * 获得表数据
 	 * 

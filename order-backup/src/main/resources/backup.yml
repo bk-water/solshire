@@ -1,34 +1,32 @@
 
 mysql:
-  tables: table1,table2table3
+  tables: table1,table2,table3
   backupdbs:
-  - ip:
-    port:
-    schema:
-    username:
-    password:
-    classDriver:
-    url:
-  - ip:
-    port:
-    schema:
-    username:
-    password:
-    classDriver:
-    url:
+  - ip: 127.0.0.1
+    port: 3308
+    schema: order1
+    username: root1
+    password: root2
+    classDriver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.12:3306/uhome?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+  - ip: 127.0.0.1
+    port: 3308
+    schema: order2
+    username: root2
+    password: root2
+    classDriver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.12:3306/uhome?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
   dump:
-    binPath:
-    month:
-    exportFolder:
+    binPath: /usr/local/mysql/bin
+    month: 201809
+    exportFolder: /tmp/mysql-export-csv
   monitordb:
-    url:
-    username:
-    password:
-    classDriver:
+    url: 3308
+    username: order2
+    password: root3
+    classDriver: com.mysql.jdbc.Driver
 greenplum:
-  ip:
-  port:
-  schema:
-  username:
-  password:
-  classDriver:
+  url: 3308
+  username: order2
+  password: root3
+  classDriver: com.mysql.jdbc.Driver

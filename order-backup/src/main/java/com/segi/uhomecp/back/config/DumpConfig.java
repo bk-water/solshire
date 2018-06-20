@@ -10,9 +10,9 @@ import java.util.Map;
  */
 public class DumpConfig {
 
-    private String binPath;
-    private String month;
-    private String exportFolder;
+    public String binPath;
+    public String month;
+    public String exportFolder;
 
     public DumpConfig() {
     }
@@ -38,30 +38,5 @@ public class DumpConfig {
             throw new RuntimeException("mysql.dump.exportFolder 未配置");
 
         return dumpConfig;
-    }
-
-
-    public String getBinPath() {
-        return binPath;
-    }
-
-    public void setBinPath(String binPath) {
-        this.binPath = binPath;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public String getExportFolder() {
-        return exportFolder;
-    }
-
-    public void setExportFolder(String exportFolder) {
-        this.exportFolder = exportFolder;
     }
 }

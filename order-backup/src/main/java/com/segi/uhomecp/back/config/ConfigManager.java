@@ -36,10 +36,9 @@ public class ConfigManager {
     private ConfigManager() {
     }
 
-    public static ConfigManager instance() throws IOException {
+    public static ConfigManager instance(String ymalPath) throws IOException {
         if (instance==null) {
             // 启动参数传入或者环境变量
-            String ymalPath = "backup.yml";
             Yaml yaml = new Yaml();
             Map<String, Object> ymalMap = null;
             InputStream is = Resources.getResource(ymalPath).openStream();
@@ -80,12 +79,6 @@ public class ConfigManager {
         Map<String, Object> gpMap = (Map<String, Object>) ymalMap.get("greenplum");
         configManager.gpManager = JdbcConnection.buildGP(gpMap);
         return configManager;
-    }
-
-
-
-    public static void main(String[] args) throws IOException {
-        ConfigManager.instance();
     }
 
     public List<JdbcConnection> getBackupdbs() {

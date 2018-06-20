@@ -18,16 +18,16 @@ public class GPManager {
 
     public JdbcConnection jdbcConn;
 
-
-
     private GPManager() {}
 
     private static GPManager instance = null;
 
-    public static GPManager instance(String classDriver, String url, String username, String password) {
-        GPManager gpManager = new GPManager();
-        gpManager.jdbcConn = new JdbcConnection(classDriver,url,username,password);
-        return gpManager;
+    public static GPManager instance(JdbcConnection jdbcConnection) {
+        if (instance == null) {
+            instance = new GPManager();
+            instance.jdbcConn = jdbcConnection;
+        }
+        return instance;
     }
 
     /**

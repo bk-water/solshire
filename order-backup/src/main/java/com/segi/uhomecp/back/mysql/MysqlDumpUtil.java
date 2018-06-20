@@ -1,6 +1,8 @@
 package com.segi.uhomecp.back.mysql;
 
 import com.google.common.base.Strings;
+import com.segi.uhomecp.back.JdbcConnection;
+import com.segi.uhomecp.back.config.DumpConfig;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -57,5 +59,12 @@ public class MysqlDumpUtil {
             sb.append(s+"\n");
         }
         System.out.println("导出成功" + sb.toString());
+    }
+
+
+    public static void dumpMysqlData(DumpConfig config, JdbcConnection conn, String tableName) throws IOException {
+        MysqlDumpUtil.dumpMysqlData(conn.ip,conn.port,conn.username,conn.password,
+                config.exportFolder,config.month,conn.schema,
+                tableName,config.binPath);
     }
 }

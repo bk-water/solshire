@@ -31,8 +31,8 @@ public class UserPermission implements Serializable {
     /**
      * 父节点id
      */
-    @Column(name = "parentId")
-    private Long parentid;
+    @Column(name = "parent_id")
+    private Long parentId;
 
     /**
      * 权限code
@@ -46,13 +46,22 @@ public class UserPermission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public UserPermission(Long id, String url, String name, Long parentId, String code, String type) {
+        this.id = id;
+        this.url = url;
+        this.name = name;
+        this.parentId = parentId;
+        this.code = code;
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("id", id)
                 .add("url", url)
                 .add("name", name)
-                .add("parentid", parentid)
+                .add("parentId", parentId)
                 .add("code", code)
                 .add("type", type)
                 .toString();

@@ -10,10 +10,19 @@
     <result column="sysInfo" jdbcType="VARCHAR" property="sysinfo" />
     <result column="loginTime" jdbcType="TIMESTAMP" property="logintime" />
   </resultMap>
+
+  <resultMap id="loginLogEntity" type="com.solshire.model.LoginLogEntity" extends="BaseResultMap">
+    <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+  </resultMap>
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
     id, name, token, loginIp, sysInfo, loginTime
   </sql>
-  
+
+  <select id="queryByPage" parameterType="com.solshire.model.LoginLogQuery" resultMap="loginLogEntity">
+    select login.*, r.richeid userId,r.realname userName from  sol_login_log login
+    left join sol_riches r on login.name = r.email or login.name = r.tel or login.name = r.name
+  </select>
 </mapper>

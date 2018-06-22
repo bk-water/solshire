@@ -6,4 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service("showDataService")
 public class ShowDataServiceImpl extends BaseServiceImpl<ShowData, Integer> implements ShowDataService {
+    @Override
+    public void save(ShowData info) {
+        if (info.getId()== null) {
+            insert(info);
+        } else {
+            update(info);
+        }
+    }
 }

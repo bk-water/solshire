@@ -9,12 +9,14 @@
     <result column="pswd" jdbcType="VARCHAR" property="pswd" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
     <result column="status" jdbcType="BIGINT" property="status" />
   </resultMap>
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
-    id, nickname, email, pswd, create_time, last_login_time, status
+    id, nickname, email, pswd, create_time, last_login_time, last_login_ip, status
   </sql>
+
   
 </mapper>

@@ -13,7 +13,12 @@ import java.util.List;
  */
 public class TreeBuilder {
 
-    public static List<TreeNode> build(List<TreeNode> treeNodes) {
+    public static List<TreeNode> build(List list) {
+
+        List<TreeNode> treeNodes = new ArrayList<>();
+        for (Object obj : list) {
+            treeNodes.add(new TreeNode(obj));
+        }
 
         List<TreeNode> trees = new ArrayList<>();
 
@@ -48,18 +53,18 @@ public class TreeBuilder {
         UserPermission treeNode10 = new UserPermission(10L,"url","科技园",treeNode8.getId(),"1C","1");
         UserPermission treeNode11 = new UserPermission(11L,"url","科技园11",treeNode10.getId(),"1C","1");
 
-        List<TreeNode> list = new ArrayList<>();
+        List<UserPermission> list = new ArrayList<>();
 
-        list.add(new TreeNode(treeNode1));
-        list.add(new TreeNode(treeNode2));
-        list.add(new TreeNode(treeNode3));
-        list.add(new TreeNode(treeNode4));
-        list.add(new TreeNode(treeNode5));
-        list.add(new TreeNode(treeNode6));
-        list.add(new TreeNode(treeNode7));
-        list.add(new TreeNode(treeNode8));
-        list.add(new TreeNode(treeNode10));
-        list.add(new TreeNode(treeNode11));
+        list.add(treeNode1);
+        list.add(treeNode2);
+        list.add(treeNode3);
+        list.add(treeNode4);
+        list.add(treeNode5);
+        list.add(treeNode6);
+        list.add(treeNode7);
+        list.add(treeNode8);
+        list.add(treeNode10);
+        list.add(treeNode11);
         List<TreeNode> trees = TreeBuilder.build(list);
         System.out.printf(JsonUtils.toJson(trees));
     }

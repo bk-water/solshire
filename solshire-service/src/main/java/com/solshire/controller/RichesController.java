@@ -2,6 +2,7 @@ package com.solshire.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.solshire.model.LoginLogEntity;
+import com.solshire.model.LoginLogQuery;
 import com.solshire.model.RichesEntity;
 import com.solshire.model.RichesQuery;
 import com.solshire.model.domain.LoginLog;
@@ -104,7 +105,7 @@ public class RichesController {
     // 下级关系图
     @ApiOperation(value = "下级关系树",notes = "下级关系树")
     @GetMapping("/tree/{id}")
-    public Result<RichesEntity> listUser(@PathVariable Integer id) {
+    public Result<RichesEntity> getChild(@PathVariable Integer id) {
         // flag bit0注册用户，bit1财富成员
         List<RichesEntity> list = new ArrayList<>();
         return Result.instance(List.class).success(list);
@@ -123,12 +124,9 @@ public class RichesController {
     // 小程序登入信息
     @ApiOperation(value = "小程序登入记录",notes = "小程序登入记录")
     @GetMapping("/appLoginInfo")
-    public ResultPage<LoginLogEntity> directUser(LoginLog query) {
-        // oginLogService.queryByPage(query);
-        PageInfo<LoginLogEntity> list = new PageInfo<>();
-        return ResultPage.instance(LoginLogEntity.class).success(list);
+    public ResultPage<LoginLogEntity> directUser(LoginLogQuery query) {
+        PageInfo<LoginLogEntity> pageInfo = loginLogService.queryByPage(query);
+        return ResultPage.instance(LoginLogEntity.class).success(pageInfo);
     }
-
-
     // TODO: 导出功能
 }

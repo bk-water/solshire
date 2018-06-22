@@ -7,6 +7,7 @@ import com.solshire.model.RichesEntity;
 import com.solshire.model.RichesQuery;
 import com.solshire.model.domain.Riches;
 import com.solshire.service.RichesService;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,21 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     @Autowired
     RichesMapper richesMapper;
 
+
     @Override
     public PageInfo<RichesEntity> queryByPage(RichesQuery query) {
         PageHelper.startPage(query.getPageNum(), query.getPageSize());
         List<RichesEntity> result = richesMapper.queryByPage(query);
         return new PageInfo<>(result);
+    }
+
+    @Override
+    public PageInfo<RichesEntity> queryChildren(Integer richeid) {
+        return null;
+    }
+
+    @Override
+    public PageInfo<RichesEntity> queryChildrenByPage(RichesQuery query) {
+        return null;
     }
 }

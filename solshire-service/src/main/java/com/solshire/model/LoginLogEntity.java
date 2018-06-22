@@ -13,4 +13,7 @@ import lombok.Setter;
 public class LoginLogEntity extends LoginLog {
 
     private String userId;
+
+    private String userName;
+
 }

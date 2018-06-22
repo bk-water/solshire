@@ -1,15 +1,10 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
+import lombok.*;
 
 @NoArgsConstructor
 @Getter
@@ -46,7 +41,8 @@ public class UserAdmin implements Serializable {
     @Column(name = "last_login_time")
     private Date lastLoginTime;
 
-
+    @Column(name = "last_login_ip")
+    private String lastLoginIp;
 
     /**
      * 1:有效，0:禁止登录
@@ -64,6 +60,7 @@ public class UserAdmin implements Serializable {
                 .add("pswd", pswd)
                 .add("createTime", createTime)
                 .add("lastLoginTime", lastLoginTime)
+                .add("lastLoginIp", lastLoginIp)
                 .add("status", status)
                 .toString();
     }

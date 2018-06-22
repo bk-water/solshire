@@ -45,6 +45,7 @@ CREATE TABLE `user_admin` (
   `pswd` varchar(32) DEFAULT NULL COMMENT '密码',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `last_login_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `last_login_ip` varchar(128) DEFAULT '1' '最后登入IP',
   `status` bigint(1) DEFAULT '1' COMMENT '1:有效，0:禁止登录',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;

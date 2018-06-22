@@ -210,11 +210,11 @@
         <!--<table tableName="sol_subscribe_insurant" domainObjectName="SubscribeInsurant"/>-->
         <!--<table tableName="sol_subscribe_owner" domainObjectName="SubscribeOwner"/>-->
         <table tableName="user_admin" domainObjectName="UserAdmin"/>
-        <table tableName="user_permission" domainObjectName="UserPermission"/>
-        <table tableName="user_role" domainObjectName="UserRole"/>
-        <table tableName="user_role_permission" domainObjectName="UserRolePermission"/>
-        <table tableName="user_role_rel" domainObjectName="UserRoleRel"/>
-        <table tableName="user_admin_login_log" domainObjectName="UserAdminLoginLog"/>
+        <!--<table tableName="user_permission" domainObjectName="UserPermission"/>-->
+        <!--<table tableName="user_role" domainObjectName="UserRole"/>-->
+        <!--<table tableName="user_role_permission" domainObjectName="UserRolePermission"/>-->
+        <!--<table tableName="user_role_rel" domainObjectName="UserRoleRel"/>-->
+        <!--<table tableName="user_admin_login_log" domainObjectName="UserAdminLoginLog"/>-->
 
         <!--<table tableName="city" domainObjectName="City">-->
             <!--&lt;!&ndash;-->

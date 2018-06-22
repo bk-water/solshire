@@ -107,7 +107,7 @@ public class RichesController {
     @GetMapping("/tree/{id}")
     public Result<RichesEntity> getChild(@PathVariable Integer id) {
         // flag bit0注册用户，bit1财富成员
-        List<RichesEntity> list = new ArrayList<>();
+        List<RichesEntity> list =richesService.queryChildren(id);
         return Result.instance(List.class).success(list);
     }
 
@@ -117,7 +117,7 @@ public class RichesController {
     @GetMapping("/directUser")
     public ResultPage<RichesEntity> directUser(RichesQuery query) {
         // master 1 flag 1 关系表查询直属成员
-        PageInfo<RichesEntity> list =richesService.queryByPage(query);
+        PageInfo<RichesEntity> list =richesService.queryChildrenByPage(query);
         return ResultPage.instance(RichesEntity.class).success(list);
     }
 

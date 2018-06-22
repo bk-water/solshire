@@ -28,7 +28,7 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     }
 
     @Override
-    public PageInfo<RichesEntity> queryChildren(Integer richeid) {
+    public List<RichesEntity> queryChildren(Integer richeid) {
         return null;
     }
 

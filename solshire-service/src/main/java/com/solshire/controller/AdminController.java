@@ -1,6 +1,8 @@
 package com.solshire.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.solshire.model.UserAdminInfo;
+import com.solshire.model.UserAdminQuery;
 import com.solshire.model.domain.UserAdmin;
 import com.solshire.model.domain.UserAdminLoginLog;
 import com.solshire.model.domain.UserPermission;
@@ -15,6 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,28 +45,30 @@ public class AdminController {
     // 用户列表
     @ApiOperation("用户列表")
     @GetMapping("admin")
-    public ResultPage<UserAdmin> list(String userName) {
-        List<UserAdmin> list = new ArrayList<>();
-
+    public ResultPage<UserAdmin> list(UserAdminQuery query) {
+        PageInfo<UserAdmin> list = userAdminService.selectPage(null, query.getPageNum(),query.getPageSize());
         return ResultPage.instance(UserAdmin.class).success(list);
     }
 
     @ApiOperation("查询用户")
     @GetMapping("admin/{id}")
-    public Result<UserAdmin> queryById(@PathVariable Integer id) {
-        return Result.instance(UserAdmin.class).success(new UserAdmin());
+    public Result<UserAdmin> queryById(@PathVariable Long id) {
+        UserAdmin info = userAdminService.selectByPk(id);
+        return Result.instance(UserAdmin.class).success(info);
     }
 
     // 新增编辑用户
     @ApiOperation("保存用户")
     @PostMapping("admin")
     public Result save(@RequestBody UserAdmin user) {
-        return Result.instance(UserAdmin.class).success(new UserAdmin());
+        userAdminService.save(user);
+        return Result.instance(UserAdmin.class).success(user);
     }
 
     @ApiOperation("删除用户")
     @DeleteMapping("admin/{id}")
-    public ResultBase delete(@PathVariable Integer id) {
+    public ResultBase delete(@PathVariable Long id) {
+        userAdminService.deleteByPk(id);
         return ResultBase.instance().success();
     }
 

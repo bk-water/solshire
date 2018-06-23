@@ -39,4 +39,13 @@ public class UserAdminServiceImpl extends BaseServiceImpl<UserAdmin, Long> imple
         List<UserRole> roles = userRoleService.selectByIds(roleIds);
         return UserAdminInfo.build(userAdmin,roles);
     }
+
+    @Override
+    public void save(UserAdmin info) {
+        if (info.getId()!= null) {
+            update(info);
+        } else {
+            insert(info);
+        }
+    }
 }

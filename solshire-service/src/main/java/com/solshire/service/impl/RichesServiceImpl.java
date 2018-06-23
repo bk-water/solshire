@@ -11,6 +11,7 @@ import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service("richesService")
@@ -24,16 +25,41 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     public PageInfo<RichesEntity> queryByPage(RichesQuery query) {
         PageHelper.startPage(query.getPageNum(), query.getPageSize());
         List<RichesEntity> result = richesMapper.queryByPage(query);
+        //
         return new PageInfo<>(result);
     }
 
     @Override
     public List<RichesEntity> queryChildren(Integer richeid) {
-        return null;
+        RichesQuery query = new RichesQuery();
+        query.setRicheid(richeid);
+        //
+        return richesMapper.queryChildren(query);
     }
 
     @Override
     public PageInfo<RichesEntity> queryChildrenByPage(RichesQuery query) {
+        PageHelper.startPage(query.getPageNum(), query.getPageSize());
+        //
+        List<RichesEntity> result = richesMapper.queryChildren(query);
+        return new PageInfo<>(result);
+    }
+
+    @Override
+    public RichesEntity queryById(Integer richeId) {
+        selectByPk(richeId);
+        // 获取级别
+        Integer level = richesMapper.queryLevel(richeId,1);
         return null;
+    }
+
+    @Override
+    public void save(Riches info) {
+        if (info.getRicheid() == null) {
+            info.setAddtime(new Date());
+            insert(info);
+        } else {
+            update(info);
+        }
     }
 }

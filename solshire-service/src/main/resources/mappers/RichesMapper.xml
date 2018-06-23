@@ -31,13 +31,47 @@
     richeid, name, realname, certifyNo, tel, sex, state, bankcardid, bankcardname, pwd, openID, img, flag, email, remark, master, token, addtime
   </sql>
 
+  <sql id="BaseColumnsAlisa">
+    <!-- WARNING - @mbg.generated -->
+    u.richeid richeid, u.name name, u.realname realname, u.certifyNo realname,
+    u.tel tel, u.sex sex, u.state state, u.bankcardid bankcardid,
+    u.bankcardname bankcardname, u.pwd pwd, u.openID openID, u.img img,
+    u.flag flag, u.email email, u.remark remark, u.master master, u.token token, u.addtime addtime
+  </sql>
+
   <select id="queryByPage" parameterType="com.solshire.model.RichesQuery" resultMap="richesEntity">
     SELECT <include refid="BaseColumns"/> FROM sol_riches
     <where>
       <if test="beginDate != null">
-        addtime = #{beginDate}
+        AND DATE_FORMAT(addtime,'%Y%m%d')  BETWEEN #{beginDate} and #{endDate}
+      </if>
+      <if test="flags != null">
+        AND flag in (${flags})
+      </if>
+      <if test="master != null">
+        AND  master = #{master}
       </if>
     </where>
   </select>
-  
+
+  <select id="queryChildren" parameterType="com.solshire.model.RichesQuery" resultMap="richesEntity">
+    SELECT <include refid="BaseColumnsAlisa"/> FROM sol_riches u, sol_richegroup rel
+    WHERE
+    u.richeid = rel.cid
+    AND rel.pid = #{richeid}
+      <if test="beginDate != null">
+        AND DATE_FORMAT(addtime,'%Y%m%d')  BETWEEN #{beginDate} and #{endDate}
+      </if>
+      <if test="flags != null">
+        AND flag in (${flags})
+      </if>
+      <if test="master != null">
+        AND  master = #{master}
+      </if>
+  </select>
+
+  <select id="queryLevel" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    SELECT getSpellFull(#{richeid},#{type})
+  </select>
+
 </mapper>

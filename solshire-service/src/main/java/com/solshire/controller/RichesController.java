@@ -6,6 +6,7 @@ import com.solshire.model.LoginLogQuery;
 import com.solshire.model.RichesEntity;
 import com.solshire.model.RichesQuery;
 import com.solshire.model.domain.LoginLog;
+import com.solshire.model.domain.Riches;
 import com.solshire.service.LoginLogService;
 import com.solshire.service.RichesService;
 import com.solshire.util.Result;
@@ -42,6 +43,7 @@ public class RichesController {
     @GetMapping("/listPartner")
     public ResultPage<RichesEntity> listPartner(RichesQuery query) {
         // master 1 flag 1
+        query.setMaster(1);
         PageInfo<RichesEntity> list =richesService.queryByPage(query);
         return ResultPage.instance(RichesEntity.class).success(list);
     }
@@ -50,7 +52,8 @@ public class RichesController {
     @GetMapping("/listAdviser")
     public ResultPage<RichesEntity> listAdviser(RichesQuery query) {
         // master 0 flag 1
-
+        query.setMaster(0);
+        query.setFlags("2,3,6,7");
         PageInfo<RichesEntity> list =richesService.queryByPage(query);
         return ResultPage.instance(RichesEntity.class).success(list);
     }
@@ -59,6 +62,7 @@ public class RichesController {
     @GetMapping("/listUser")
     public ResultPage<RichesEntity> listUser(RichesQuery query) {
         // flag bit0注册用户，bit1财富成员
+        query.setFlags("2,3,4,5,6,7");
         PageInfo<RichesEntity> list =richesService.queryByPage(query);
         return ResultPage.instance(RichesEntity.class).success(list);
     }
@@ -67,21 +71,24 @@ public class RichesController {
     @ApiOperation("创建修改事业合伙人信息")
     @PostMapping("/partner")
     public Result<RichesEntity> savePartner(@RequestBody RichesEntity user) {
-        //
+        user.setMaster(1);
+        richesService.save(user);
         return Result.instance(RichesEntity.class).success(new RichesEntity());
     }
 
     @ApiOperation("修改顾问信息")
     @PostMapping("/adviser")
     public Result<RichesEntity> updateAdviser(@RequestBody RichesEntity user) {
-        //
+        user.setMaster(0);
+        richesService.save(user);
         return Result.instance(RichesEntity.class).success(new RichesEntity());
     }
 
     @ApiOperation("修改用户查询用户信息")
     @PostMapping("")
     public Result<RichesEntity> updateUser(@RequestBody RichesEntity user) {
-        //
+        user.setMaster(0);
+        richesService.save(user);
         return Result.instance(RichesEntity.class).success(new RichesEntity());
     }
 
@@ -89,16 +96,21 @@ public class RichesController {
     //
     @ApiOperation(value = "用户状态变更",notes = "状态：0正在审核，1正常，2已解约 3 删除")
     @PostMapping("/status")
-    public ResultBase status(Integer status) {
+    public ResultBase status(Integer richeid, Short status) {
         // master 1 flag 1
+        Riches riches = new Riches();
+        riches.setRicheid(richeid);
+        riches.setState(status);
+        // 变更前需检查之前状态
+        richesService.update(riches);
         return ResultBase.instance().success("变更成功");
     }
 
     @ApiOperation("用户详情查询")
     @GetMapping("/{id}")
     public Result<RichesEntity> queryById(@PathVariable Integer id) {
-        //
-        return Result.instance(RichesEntity.class).success(new RichesEntity());
+        RichesEntity info = richesService.queryById(id);
+        return Result.instance(RichesEntity.class).success(info);
     }
 
 
@@ -106,7 +118,6 @@ public class RichesController {
     @ApiOperation(value = "下级关系树",notes = "下级关系树")
     @GetMapping("/tree/{id}")
     public Result<RichesEntity> getChild(@PathVariable Integer id) {
-        // flag bit0注册用户，bit1财富成员
         List<RichesEntity> list =richesService.queryChildren(id);
         return Result.instance(List.class).success(list);
     }
@@ -116,7 +127,6 @@ public class RichesController {
     @ApiOperation(value = "直属成员",notes = "直属成员")
     @GetMapping("/directUser")
     public ResultPage<RichesEntity> directUser(RichesQuery query) {
-        // master 1 flag 1 关系表查询直属成员
         PageInfo<RichesEntity> list =richesService.queryChildrenByPage(query);
         return ResultPage.instance(RichesEntity.class).success(list);
     }

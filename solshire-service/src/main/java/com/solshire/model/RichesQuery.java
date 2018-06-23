@@ -2,6 +2,7 @@ package com.solshire.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import sun.rmi.runtime.Log;
 
 /**
  * @Author koabs
@@ -13,4 +14,22 @@ import lombok.Setter;
 @Setter
 public class RichesQuery extends PageQuery{
 
+    private Integer richeid;
+
+    /**
+     * 财富团队成员：bit0注册用户，bit1财富成员，bit2客户（保单持有人）
+     * (按位运算)
+     *  001 010 011 100 101 110 111
+     *   1   2   3   4   5   6   7
+     */
+    private String flags;
+
+    /**
+     * 最高级别：0非事业合伙人，1事业合伙人
+     */
+    private Integer master;
+
+    private String beginDate;
+
+    private String endDate;
 }

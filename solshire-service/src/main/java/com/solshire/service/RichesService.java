@@ -23,4 +23,8 @@ public interface RichesService extends BaseService<Riches, Integer> {
      * @return
      */
     PageInfo<RichesEntity> queryChildrenByPage(RichesQuery query);
+
+    RichesEntity queryById(Integer richeId);
+
+    void save(Riches info);
 }

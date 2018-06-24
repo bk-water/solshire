@@ -17,10 +17,29 @@
     <result column="state" jdbcType="INTEGER" property="state" />
     <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
   </resultMap>
-  
+
+  <resultMap id="orderProductEntity" type="com.solshire.model.OrderProductEntity" extends="BaseResultMap">
+  </resultMap>
+
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
     policyNo, productname, policyowner, corporation, moneytype, payage, premium, coverage, pattern, feeid, richeid, state, addtime
   </sql>
+
+
+  <select id="listConsumer" parameterType="com.solshire.model.RichesQuery">
+    SELECT u.name, u.sex, u.brithday ,u.tel, u.certifyNo, u.email ,  product.richeid adviserId
+    FROM sol_orderdata u, sol_orderproduct product
+    where u.policyNo = product.policyNo
+    and u.flag = 2
+    <if test="beginDate != null">
+      AND DATE_FORMAT(addtime,'%Y%m%d')  BETWEEN #{beginDate} and #{endDate}
+    </if>
+    group by u.certifyNo
+  </select>
+
+  <select id="query" parameterType="com.solshire.model.ProductQuery" resultMap="orderProductEntity" >
+    SELECT <include refid="BaseColumns"/> FROM sol_orderproduct
+  </select>
   
 </mapper>

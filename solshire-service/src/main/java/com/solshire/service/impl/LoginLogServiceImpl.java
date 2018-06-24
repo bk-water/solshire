@@ -5,7 +5,6 @@ import com.github.pagehelper.PageInfo;
 import com.solshire.mapper.LoginLogMapper;
 import com.solshire.model.LoginLogEntity;
 import com.solshire.model.LoginLogQuery;
-import com.solshire.model.RichesEntity;
 import com.solshire.model.domain.LoginLog;
 import com.solshire.service.LoginLogService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -54,6 +54,7 @@ public class Swagger2Config {
                 .title("接口文档")
 //                .contact(new Contact("CC", "https://github.com/cc", "cc@hotmail.com"))
                 .version("1.0")
+
                 .build();
     }
 

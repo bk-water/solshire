@@ -2,7 +2,6 @@ package com.solshire.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import sun.rmi.runtime.Log;
 
 /**
  * @Author koabs
@@ -32,4 +31,19 @@ public class RichesQuery extends PageQuery{
     private String beginDate;
 
     private String endDate;
+
+    /**
+     * 姓名
+     */
+    private String name;
+
+    /**
+     * 证件号
+     */
+    private String certifyNo;
+
+    /**
+     * 手机号
+     */
+    private String tel;
 }

@@ -1,7 +1,6 @@
 package com.solshire.config;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -10,7 +9,9 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import springfox.documentation.spring.web.json.Json;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -73,11 +74,20 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 //                .excludeFieldsWithoutExposeAnnotation()
                 .setDateFormat("yyyy-MM-dd HH:mm:ss")
                 .serializeNulls()
+                .registerTypeAdapter(Json.class,new SpringFoxJsonToGsonAdapter())
                 .create();
 
         GsonHttpMessageConverter gsonConverter = new GsonHttpMessageConverter();
         gsonConverter.setGson(gson);
 
         return gsonConverter;
+    }
+
+    class SpringFoxJsonToGsonAdapter implements JsonSerializer<Json> {
+        @Override
+        public JsonElement serialize(Json json, Type type, JsonSerializationContext jsonSerializationContext) {
+            final JsonParser parser = new JsonParser();
+            return parser.parse(json.value());
+        }
     }
 }

@@ -9,7 +9,6 @@ import com.solshire.model.domain.UserRoleRel;
 import com.solshire.service.UserAdminService;
 import com.solshire.service.UserRoleRelService;
 import com.solshire.service.UserRoleService;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

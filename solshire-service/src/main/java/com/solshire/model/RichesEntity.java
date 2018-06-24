@@ -26,7 +26,7 @@ public class RichesEntity extends Riches{
     /**
      * 直属上级名称
      */
-    private String directSupervisor = "直属上级";
+    private String directSupervisor = "";
 
 
     public String getLevelName() {

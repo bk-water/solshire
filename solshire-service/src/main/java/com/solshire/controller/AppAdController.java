@@ -12,9 +12,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Author: koabs
  * 2018/6/18.
@@ -22,14 +19,14 @@ import java.util.List;
  */
 @RestController
 @Api(tags = "APPAd")
-@RequestMapping("/appShowInfo")
+@RequestMapping("/")
 public class AppAdController {
 
     @Autowired
     ShowDataService showDataService;
 
     @ApiOperation("APP页面列表")
-    @GetMapping("")
+    @GetMapping("appShowInfo")
     public ResultPage<ShowData> list(PageQuery query) {
         PageInfo<ShowData> pageInfo =showDataService.selectPageAndCount(null,query.getPageNum(),query.getPageSize());
         return ResultPage.instance(ShowData.class).success(pageInfo);
@@ -50,7 +47,7 @@ public class AppAdController {
     }
 
     @ApiOperation("保存页面信息(不带id插入)")
-    @PostMapping("")
+    @PostMapping("appShowInfo")
     public Result save(@RequestBody ShowData info) {
         // insert or update 并处理图片路径
         showDataService.save(info);

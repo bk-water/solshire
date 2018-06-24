@@ -75,4 +75,10 @@
     SELECT getSpellFull(#{richeid},#{type})
   </select>
 
+  <select id="queryByCertifyNos" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT <include refid="BaseColumns"/> FROM sol_riches
+    WHERE  certifyNo IN (${certifyNos})
+  </select>
+
+
 </mapper>

@@ -27,4 +27,6 @@ public interface RichesMapper extends BaseMapper<Riches> {
      * @return
      */
     Integer queryLevel(@Param("richeid") Integer richeid, @Param("type")Integer type);
+
+    List<Riches> queryByCertifyNos(@Param("certifyNos")String certifyNos);
 }

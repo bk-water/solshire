@@ -26,7 +26,7 @@ public class OrderData implements Serializable {
      * 保单编号
      */
     @Column(name = "policyNo")
-    private Integer policyno;
+    private String policyno;
 
     /**
      * 姓名

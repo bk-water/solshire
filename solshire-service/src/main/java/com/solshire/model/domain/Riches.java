@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class Riches implements Serializable {
      * 顾问ID
      */
     @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer richeid;
 
     /**
@@ -111,6 +113,11 @@ public class Riches implements Serializable {
      * 签约时间
      */
     private Date addtime;
+
+    /**
+     * 推荐人
+     */
+    private String reference;
 
     private static final long serialVersionUID = 1L;
 

@@ -29,14 +29,17 @@ public class UserAdminServiceImpl extends BaseServiceImpl<UserAdmin, Long> imple
         UserRoleRel query = new UserRoleRel();
         query.setUid(id);
         List<UserRoleRel> roleRelList = userRoleRelService.select(query);
-        List<Long> roleIds = Lists.transform(roleRelList, new Function<UserRoleRel, Long>() {
-            @Nullable
-            @Override
-            public Long apply(@Nullable UserRoleRel userRoleRel) {
-                return userRoleRel.getRid();
-            }
-        });
-        List<UserRole> roles = userRoleService.selectByIds(roleIds);
+        List<UserRole> roles = null;
+        if (roleRelList.size()>0) {
+            List<Long> roleIds = Lists.transform(roleRelList, new Function<UserRoleRel, Long>() {
+                @Nullable
+                @Override
+                public Long apply(@Nullable UserRoleRel userRoleRel) {
+                    return userRoleRel.getRid();
+                }
+            });
+            roles = userRoleService.selectByIds(roleIds);
+        }
         return UserAdminInfo.build(userAdmin,roles);
     }
 

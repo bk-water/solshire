@@ -6,7 +6,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="parentId" jdbcType="BIGINT" property="parentid" />
+    <result column="parentId" jdbcType="BIGINT" property="parentId" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="type" jdbcType="VARCHAR" property="type" />
   </resultMap>

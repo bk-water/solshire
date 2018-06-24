@@ -21,6 +21,7 @@
     <result column="master" jdbcType="INTEGER" property="master" />
     <result column="token" jdbcType="VARCHAR" property="token" />
     <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="reference" jdbcType="VARCHAR" property="reference" />
   </resultMap>
 
   <resultMap id="richesEntity" type="com.solshire.model.RichesEntity" extends="BaseResultMap">
@@ -28,7 +29,7 @@
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
-    richeid, name, realname, certifyNo, tel, sex, state, bankcardid, bankcardname, pwd, openID, img, flag, email, remark, master, token, addtime
+    richeid, name, realname, certifyNo, tel, sex, state, bankcardid, bankcardname, pwd, openID, img, flag, email, remark, master, token, addtime,reference
   </sql>
 
   <sql id="BaseColumnsAlisa">
@@ -36,7 +37,7 @@
     u.richeid richeid, u.name name, u.realname realname, u.certifyNo realname,
     u.tel tel, u.sex sex, u.state state, u.bankcardid bankcardid,
     u.bankcardname bankcardname, u.pwd pwd, u.openID openID, u.img img,
-    u.flag flag, u.email email, u.remark remark, u.master master, u.token token, u.addtime addtime
+    u.flag flag, u.email email, u.remark remark, u.master master, u.token token, u.addtime addtime,u.reference reference
   </sql>
 
   <select id="queryByPage" parameterType="com.solshire.model.RichesQuery" resultMap="richesEntity">

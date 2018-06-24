@@ -31,7 +31,7 @@ public class UserPermission implements Serializable {
     /**
      * 父节点id
      */
-    @Column(name = "parent_id")
+    @Column(name = "parentId")
     private Long parentId;
 
     /**

@@ -28,7 +28,7 @@ public class TreeBuilder {
                 trees.add(treeNode);
             }
 
-            for (TreeNode it : treeNodes) {
+            for(TreeNode it : treeNodes) {
                 if (it.getParentId().equalsIgnoreCase(treeNode.getId())) {
                     if (treeNode.getChildren() == null) {
                         treeNode.setChildren(new ArrayList<>());

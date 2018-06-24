@@ -36,8 +36,8 @@ public class SalesController {
     }
 
     @ApiOperation(value = "客户保单号列表",notes = "客户保单号列表")
-    @GetMapping("/orderNo/${consumerId}")
-    public Result<String> listOrderNo(@PathVariable String consumerId) {
+    @GetMapping("/orderNo/{consumerId}")
+    public Result<List> listOrderNo(@PathVariable String consumerId) {
        List<String> list = new ArrayList<>();
        return Result.instance(List.class).success(list);
     }
@@ -52,7 +52,7 @@ public class SalesController {
 
     // 保单详情
     @ApiOperation(value = "保单详情",notes = "保单详情")
-    @GetMapping("/order/${orderNo}")
+    @GetMapping("/order/{orderNo}")
     public Result<OrderEntity> orderDetail(@PathVariable String orderNo) {
         OrderEntity orderEntity = new OrderEntity();
         return Result.instance(OrderEntity.class).success(orderEntity);

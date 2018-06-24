@@ -31,7 +31,7 @@ public class AppAdController {
     @ApiOperation("APP页面列表")
     @GetMapping("")
     public ResultPage<ShowData> list(PageQuery query) {
-        PageInfo<ShowData> pageInfo =showDataService.selectPage(null,query.getPageNum(),query.getPageSize());
+        PageInfo<ShowData> pageInfo =showDataService.selectPageAndCount(null,query.getPageNum(),query.getPageSize());
         return ResultPage.instance(ShowData.class).success(pageInfo);
     }
 
@@ -53,7 +53,7 @@ public class AppAdController {
     @PostMapping("")
     public Result save(@RequestBody ShowData info) {
         // insert or update 并处理图片路径
-        showDataService.update(info);
+        showDataService.save(info);
         return Result.instance(ShowData.class).success(info);
     }
 

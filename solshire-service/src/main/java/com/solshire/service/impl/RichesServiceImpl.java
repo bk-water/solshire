@@ -7,6 +7,7 @@ import com.solshire.model.RichesEntity;
 import com.solshire.model.RichesQuery;
 import com.solshire.model.domain.Riches;
 import com.solshire.service.RichesService;
+import com.solshire.util.BeanCopierUtils;
 import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,10 +48,11 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
 
     @Override
     public RichesEntity queryById(Integer richeId) {
-        selectByPk(richeId);
+        Riches info = selectByPk(richeId);
         // 获取级别
-        Integer level = richesMapper.queryLevel(richeId,1);
-        return null;
+        // Integer level = richesMapper.queryLevel(richeId,1);
+        RichesEntity result = BeanCopierUtils.copyProperties(info,RichesEntity.class);
+        return result;
     }
 
     @Override

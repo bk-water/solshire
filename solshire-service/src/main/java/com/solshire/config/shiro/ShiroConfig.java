@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -60,32 +61,34 @@ public class ShiroConfig {
         return securityManager;
     }
 
+
+    public ShiroAccessFilter accessFilter(){
+        ShiroAccessFilter accessFilter = new ShiroAccessFilter();
+        return accessFilter;
+    }
+
     @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(DefaultWebSecurityManager  securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
+        Map<String, Filter> filtersMap = new LinkedHashMap();
+        filtersMap.put("authc", accessFilter());
+        shiroFilterFactoryBean.setFilters(filtersMap);
 
-//        Map<String, Filter> filters = new LinkedHashMap<String, Filter>();
-//        LogoutFilter logoutFilter = new LogoutFilter();
-//        logoutFilter.setRedirectUrl("/login");
-//        filters.put("logout", logoutFilter);
-//        shiroFilterFactoryBean.setFilters(filters);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         Map<String, String> filterChainDefinitionManager = new LinkedHashMap<>();
-//        filterChainDefinitionManager.put("/logout", "logout");
-//        filterChainDefinitionManager.put("/user/**", "authc,roles[user]");
-//        filterChainDefinitionManager.put("/shop/**", "authc,roles[shop]");
-//        filterChainDefinitionManager.put("/admin/**", "authc,roles[admin]");
-        filterChainDefinitionManager.put("/*", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/kaptcha/*", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/loginOut", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/login", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/*swagger*/**", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/v2/api-docs", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/**",  "authc");//其他资源全部拦截
 //        filterChainDefinitionManager.put("/ajaxLogin", "anon");//anon 可以理解为不拦截
 //        filterChainDefinitionManager.put("/statistic/**",  "anon");//静态资源不拦截
 //        filterChainDefinitionManager.put("/**",  "authc,roles[user]");//其他资源全部拦截
-//        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionManager);
-//
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionManager);
 //        shiroFilterFactoryBean.setLoginUrl("/login");
 //        shiroFilterFactoryBean.setSuccessUrl("/");
 //        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
-
         return shiroFilterFactoryBean;
     }
 

@@ -2,7 +2,9 @@ package com.solshire.plugin;
 
 import com.google.common.collect.Maps;
 import com.solshire.util.JsonUtils;
+import com.solshire.util.ResultBase;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authc.AuthenticationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -19,10 +21,16 @@ import java.util.Map;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<?> handleRuntimeException(HttpServletRequest request, RuntimeException e) {
+    @ExceptionHandler(Exception.class)
+    public ResultBase handleException(HttpServletRequest request, Exception e) {
+        ResultBase resp = null;
         printStackTrace(request, e);
-        return ResponseEntity.badRequest().body(e.getMessage());
+        if (e instanceof AuthenticationException) {
+            resp = ResultBase.instance().noPermissions(e.getMessage());
+        } else {
+            resp = ResultBase.instance().fail(e.getMessage());
+        }
+        return resp;
     }
 
     /**

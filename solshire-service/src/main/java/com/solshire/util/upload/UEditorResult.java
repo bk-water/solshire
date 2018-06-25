@@ -17,10 +17,11 @@ public class UEditorResult {
     private String type;
     private String url;
     private String msg;
+    private String path;
 
 
-    public static UEditorResult success(String name, String originalName, String url) {
-        return new UEditorResult(name, originalName, "10", "SUCCESS", ".jpg",url);
+    public static UEditorResult success(String name, String originalName, String url,String path) {
+        return new UEditorResult(name, originalName, "10", "SUCCESS", ".jpg",url, path);
     }
 
     public static UEditorResult error(String msg) {
@@ -33,13 +34,14 @@ public class UEditorResult {
         this.msg = msg;
     }
 
-    public UEditorResult(String name, String originalName, String size, String state, String type, String url) {
+    public UEditorResult(String name, String originalName, String size, String state, String type, String url,String path) {
         this.name = name;
         this.originalName = originalName;
         this.size = size;
         this.state = state;
         this.type = type;
         this.url = url;
+        this.path = path;
     }
 
 }

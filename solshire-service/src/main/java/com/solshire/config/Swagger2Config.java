@@ -44,7 +44,9 @@ public class Swagger2Config {
                 new Tag("Riches","财富团队成员和注册用户模块"),
                 new Tag("APPAd","网站编辑"),
                 new Tag("Gen","上传文件等公共方法"),
-                new Tag("Sales","销售管理")
+                new Tag("Sales","销售管理"),
+                new Tag("Commission","佣金管理"),
+                new Tag("Product","保险产品")
         };
         return tags;
     }

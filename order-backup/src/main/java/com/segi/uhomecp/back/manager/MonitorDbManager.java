@@ -24,6 +24,4 @@ public class MonitorDbManager {
         return instance;
     }
 
-
-
 }

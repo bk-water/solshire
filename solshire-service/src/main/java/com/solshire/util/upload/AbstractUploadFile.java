@@ -40,7 +40,7 @@ public abstract class AbstractUploadFile {
             File file = FileUtil.save(is ,path,fileName);
             is.close();
             FileBo fileBo = new FileBo(file,file.getName(),
-                    url + fileName,path+fileName,ext);
+                    url + fileName,path+fileName,ext, fileName);
             return fileBo;
         } catch (Exception e){
             throw new RuntimeException("文件上传失败!", e);

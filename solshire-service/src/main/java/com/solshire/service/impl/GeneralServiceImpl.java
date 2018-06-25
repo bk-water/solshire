@@ -4,6 +4,7 @@ import com.solshire.service.GeneralService;
 import com.solshire.util.upload.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +21,9 @@ public class GeneralServiceImpl implements GeneralService {
 
     @Autowired
     UEditorUploadFile uEditorUploadFile;
+
+    @Value("${upload.url}")
+    public String url;
 
     @Override
     public UEditorResult uploadUeditorImage(MultipartFile img) {
@@ -38,7 +42,7 @@ public class GeneralServiceImpl implements GeneralService {
         try {
             FileBo fileBo = uploadInst.uploadFile(img.getOriginalFilename(), img.getInputStream());
 //            BufferedImage sourceImg = ImageIO.read(new FileInputStream(fileBo.getFile()));
-            return UEditorResult.success(img.getOriginalFilename(),img.getOriginalFilename(),fileBo.getUrl());
+            return UEditorResult.success(img.getOriginalFilename(),img.getOriginalFilename(),url, fileBo.getRelativePath());
         } catch (Exception e) {
             log.error(e.getMessage());
             return UEditorResult.error("图片上传失败");

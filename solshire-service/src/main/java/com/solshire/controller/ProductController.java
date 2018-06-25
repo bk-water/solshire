@@ -15,5 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @Api(tags = "Product")
 public class ProductController {
+    // 保险产品费率
+    // 设置佣金系数
+    // 详情
+
+    // 财富团队费率
+    // 设置佣金比率
+    // 修改
+
+    // 保单预约
+    // 详情
+    // 审核
+
+    // 保单托管
+    // 金牌顾问
+
+    //计划书
 
 }

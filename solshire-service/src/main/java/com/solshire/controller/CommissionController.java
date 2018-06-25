@@ -17,4 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Commission")
 public class CommissionController {
 
+    // 业绩酬金
+
+    // 业绩酬金详情
+    // 产品佣金
+    // 产品佣金详情
+
+    // 酬金发放
+    // 详情
+    // 审核
+    // 支付
+    // 酬金日志
+    // 酬金异常
+
 }

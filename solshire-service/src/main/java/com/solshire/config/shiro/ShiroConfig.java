@@ -76,11 +76,13 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilters(filtersMap);
 
         Map<String, String> filterChainDefinitionManager = new LinkedHashMap<>();
-        filterChainDefinitionManager.put("/kaptcha/*", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/kaptcha/**", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/loginOut", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/login", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/*swagger*/**", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/v2/api-docs", "anon");//anon 可以理解为不拦截
+        filterChainDefinitionManager.put("/webjars/**", "anon");//anon 可以理解为不拦截
+
         filterChainDefinitionManager.put("/**",  "authc");//其他资源全部拦截
 //        filterChainDefinitionManager.put("/ajaxLogin", "anon");//anon 可以理解为不拦截
 //        filterChainDefinitionManager.put("/statistic/**",  "anon");//静态资源不拦截

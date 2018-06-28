@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.solshire.mapper.ShowDataMapper">
+<mapper namespace="${target.package.mapper}.ShowDataMapper">
   <resultMap id="BaseResultMap" type="com.solshire.model.domain.ShowData">
     <!-- WARNING - @mbg.generated -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="tip" jdbcType="VARCHAR" property="tip" />
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
@@ -14,7 +15,7 @@
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
-    id, name, image, type, sort, addtime, context
+    id, name, tip, image, type, sort, addtime, context
   </sql>
   
 </mapper>

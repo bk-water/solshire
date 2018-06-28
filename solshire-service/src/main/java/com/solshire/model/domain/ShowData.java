@@ -1,15 +1,10 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
+import lombok.*;
 
 @NoArgsConstructor
 @Getter
@@ -20,13 +15,14 @@ public class ShowData implements Serializable {
      * 自增ID
      */
     @Id
-    @GeneratedValue(generator = "JDBC")
     private Integer id;
 
     /**
      * 名称
      */
     private String name;
+
+    private String tip;
 
     /**
      * 图像
@@ -51,6 +47,7 @@ public class ShowData implements Serializable {
         return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("id", id)
                 .add("name", name)
+                .add("tip", tip)
                 .add("image", image)
                 .add("type", type)
                 .add("sort", sort)

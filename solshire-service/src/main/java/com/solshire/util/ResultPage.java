@@ -1,6 +1,7 @@
 package com.solshire.util;
 
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,9 +40,13 @@ public class ResultPage<T> extends ResultBase{
     @Getter
     @Setter
     class Paginator {
+        @ApiModelProperty("页码")
         private int pageNum;
+        @ApiModelProperty("每页大小")
         private int pageSize;
+        @ApiModelProperty("总记录")
         private long total;
+        @ApiModelProperty("总页数")
         private int pages;
 
         public Paginator(PageInfo pageInfo) {

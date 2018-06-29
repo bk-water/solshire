@@ -1,5 +1,6 @@
 package com.solshire.util.upload;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,13 +11,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UEditorResult {
+    @ApiModelProperty("文件名")
     private String name;
     private String originalName;
     private String size;
     private String state; //SUCCESS
     private String type;
+    @ApiModelProperty("文件url 前缀")
     private String url;
     private String msg;
+    @ApiModelProperty("文件相对路径")
     private String path;
 
 

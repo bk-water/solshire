@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,11 +30,13 @@ public class DicData implements Serializable {
     /**
      * 备注
      */
+    @ApiModelProperty("备注")
     private String remark;
 
     /**
      * 更新时间
      */
+    @ApiModelProperty("更新时间")
     private Date addtime;
 
     private static final long serialVersionUID = 1L;

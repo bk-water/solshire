@@ -209,7 +209,7 @@
         <!--<table tableName="sol_subscribe_beneficiarie" domainObjectName="SubscribeBeneficiarie"/>-->
         <!--<table tableName="sol_subscribe_insurant" domainObjectName="SubscribeInsurant"/>-->
         <!--<table tableName="sol_subscribe_owner" domainObjectName="SubscribeOwner"/>-->
-        <table tableName="user_admin" domainObjectName="UserAdmin"/>
+        <table tableName="sol_showdata" domainObjectName="ShowData"/>
         <!--<table tableName="user_permission" domainObjectName="UserPermission"/>-->
         <!--<table tableName="user_role" domainObjectName="UserRole"/>-->
         <!--<table tableName="user_role_permission" domainObjectName="UserRolePermission"/>-->

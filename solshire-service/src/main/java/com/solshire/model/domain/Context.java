@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,16 +19,19 @@ public class Context implements Serializable {
      * 自增量
      */
     @Id
+    @ApiModelProperty("自增量")
     private Integer id;
 
     /**
      * 顾问ID
      */
+    @ApiModelProperty("顾问ID")
     private Integer richeid;
 
     /**
      * 提交内容
      */
+    @ApiModelProperty("提交内容")
     private String context;
 
     private static final long serialVersionUID = 1L;

@@ -4,6 +4,8 @@ import com.google.common.base.MoreObjects;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @NoArgsConstructor
@@ -20,6 +22,7 @@ public class ShowData implements Serializable {
     /**
      * 名称
      */
+    @ApiModelProperty("名称")
     private String name;
 
     private String tip;
@@ -27,11 +30,13 @@ public class ShowData implements Serializable {
     /**
      * 图像
      */
+    @ApiModelProperty("图像")
     private String image;
 
     /**
      * 类型：0划动banner，1为您精选，2产品优惠，3保险理财，4基金理财，5管理咨询
      */
+    @ApiModelProperty("类型：0划动banner，1为您精选，2产品优惠，3保险理财，4基金理财，5管理咨询")
     private Integer type;
 
     private Integer sort;

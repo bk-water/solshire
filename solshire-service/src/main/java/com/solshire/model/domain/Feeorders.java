@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,16 +27,19 @@ public class Feeorders implements Serializable {
      * 保单编号
      */
     @Column(name = "policyNo")
+    @ApiModelProperty("保单编号")
     private String policyno;
 
     /**
      * 第几年,1为首年，2为次年
      */
+    @ApiModelProperty("第几年,1为首年，2为次年")
     private Integer times;
 
     /**
      * 佣金值
      */
+    @ApiModelProperty("佣金值")
     private Float value;
 
     /**

@@ -1,6 +1,7 @@
 package com.solshire.model;
 
 import com.solshire.model.domain.OrderProduct;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.joda.time.DateTime;
@@ -20,6 +21,7 @@ public class OrderProductEntity extends OrderProduct {
     /**
      *顧問名
      */
+    @ApiModelProperty("顧問名")
     private String adviserName;
 
 
@@ -27,6 +29,7 @@ public class OrderProductEntity extends OrderProduct {
      * 标准保费
      * 需计算获取
      */
+    @ApiModelProperty("标准保费")
     private Float ape;
 
     public Float getApe() {
@@ -37,16 +40,19 @@ public class OrderProductEntity extends OrderProduct {
     /**
      * 保费到期日
      */
+    @ApiModelProperty("保费到期日")
     private Date paymentDate;
 
     /**
      * 保单期满日
      */
+    @ApiModelProperty("保单期满日")
     private String expiryDate;
 
     /**
      * 缴费形式
      */
+    @ApiModelProperty("缴费形式")
     private String patternName;
 
 

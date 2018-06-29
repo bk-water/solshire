@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,21 +25,25 @@ public class RichePlans implements Serializable {
     /**
      * 计划书ID
      */
+    @ApiModelProperty("计划书ID")
     private Integer planid;
 
     /**
      * 附加条款
      */
+    @ApiModelProperty("附加条款")
     private String attach;
 
     /**
      * 提取演示（N年后可提取）
      */
+    @ApiModelProperty("提取演示（N年后可提取）")
     private Short returnS;
 
     /**
      * 备注（个性化提取演示）
      */
+    @ApiModelProperty("备注（个性化提取演示）")
     private String remark;
 
     /**
@@ -49,6 +54,7 @@ public class RichePlans implements Serializable {
     /**
      * 顾问ID
      */
+    @ApiModelProperty("顾问ID")
     private Integer richeid;
 
     private static final long serialVersionUID = 1L;

@@ -1,5 +1,6 @@
 package com.solshire.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,10 +41,12 @@ public class RichesQuery extends PageQuery{
     /**
      * 证件号
      */
+    @ApiModelProperty("证件号")
     private String certifyNo;
 
     /**
      * 手机号
      */
+    @ApiModelProperty("手机号")
     private String tel;
 }

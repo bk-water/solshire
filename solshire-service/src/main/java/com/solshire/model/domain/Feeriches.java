@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,41 +32,49 @@ public class Feeriches implements Serializable {
     /**
      * 顾问佣金
      */
+    @ApiModelProperty("顾问佣金")
     private Float fee;
 
     /**
      * 类型：1首年业绩佣金，2次年业绩佣金，3首年直属佣金，4次年直属佣金，5首年管理佣金，6次管理佣金，7首年渠道佣金，8次年渠道佣金
      */
+    @ApiModelProperty("类型：1首年业绩佣金，2次年业绩佣金，3首年直属佣金，4次年直属佣金，5首年管理佣金，6次管理佣金，7首年渠道佣金，8次年渠道佣金")
     private Integer type;
 
     /**
      * 顾问ID
      */
+    @ApiModelProperty("顾问ID")
     private Integer richeid;
 
     /**
      * 服务费用
      */
+    @ApiModelProperty("服务费用")
     private Float minus;
 
     /**
      * 美元对人民币汇率
      */
+    @ApiModelProperty("美元对人民币汇率")
     private Float exchange;
 
     /**
      * 状态：1核审，2异常，3已发放
      */
+    @ApiModelProperty("状态：1核审，2异常，3已发放")
     private Integer state;
 
     /**
      * 说明备注
      */
+    @ApiModelProperty("说明备注")
     private String remark;
 
     /**
      * 支付时间
      */
+    @ApiModelProperty("支付时间")
     private Date paytime;
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,11 +24,13 @@ public class Level implements Serializable {
     /**
      * 级别名称
      */
+    @ApiModelProperty("级别名称")
     private String name;
 
     /**
      * 购买保单金额
      */
+    @ApiModelProperty("购买保单金额")
     private Integer paymoney;
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,22 +26,26 @@ public class LoginLog implements Serializable {
     /**
      * 登陆名
      */
+    @ApiModelProperty("登陆名")
     private String name;
 
     /**
      * 登陆token
      */
+    @ApiModelProperty("登陆token")
     private String token;
 
     /**
      * 登陆IP
      */
+    @ApiModelProperty("登陆IP")
     @Column(name = "loginIp")
     private String loginip;
 
     /**
      * 手机系统信息
      */
+    @ApiModelProperty("手机系统信息")
     @Column(name = "sysInfo")
     private String sysinfo;
 

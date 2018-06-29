@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,81 +25,97 @@ public class Productfee implements Serializable {
     /**
      * 保险公司名称
      */
+    @ApiModelProperty("保险公司名称")
     private String company;
 
     /**
      * 保险产品名称
      */
+    @ApiModelProperty("保险产品名称")
     private String productname;
 
     /**
      * 缴费年期
      */
+    @ApiModelProperty("缴费年期")
     private Short payage;
 
     /**
      * 首年年供奖赏比率
      */
+    @ApiModelProperty("首年年供奖赏比率")
     private Float reward;
 
     /**
      * 基准佣金比率（如5年期 0.35，0.23，0.1，0.03，0.03）
      */
+    @ApiModelProperty("基准佣金比率（如5年期 0.35，0.23，0.1，0.03，0.03)")
     private String fee;
 
     /**
      * 首年佣金收入比率
      */
+    @ApiModelProperty("首年佣金收入比率")
     private Float firstrate;
 
     /**
      * 次年佣金收入比率
      */
+    @ApiModelProperty("次年佣金收入比率")
     private Float secondrate;
 
     /**
      * 币种（0：人民币，1港币，2美元）
      */
+    @ApiModelProperty("币种（0：人民币，1港币，2美元")
     private Short currency;
 
     /**
      * 首年业绩佣金比率
      */
+    @ApiModelProperty("首年业绩佣金比率")
     private Float firstfee;
 
     /**
      * 次年业绩佣金比率
      */
+    @ApiModelProperty("次年业绩佣金比率")
     private Float secondfee;
 
     /**
      * 首年直属佣金比率
      */
+    @ApiModelProperty("首年直属佣金比率")
     private Float firstdirectly;
 
     /**
      * 次年直属佣金比率
      */
+    @ApiModelProperty("次年直属佣金比率")
     private Float seconddirectly;
 
     /**
      * 首年管理佣金比率
      */
+    @ApiModelProperty("首年管理佣金比率")
     private Float firstmanage;
 
     /**
      * 次管理佣金比率
      */
+    @ApiModelProperty("次管理佣金比率")
     private Float secondmanage;
 
     /**
      * 首年渠道佣金比率
      */
+    @ApiModelProperty("首年渠道佣金比率")
     private Float firstchannel;
 
     /**
      * 次年渠道佣金比率
      */
+    @ApiModelProperty("次年渠道佣金比率")
     private Float secondchannel;
 
     /**

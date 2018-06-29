@@ -45,11 +45,13 @@ public class Feeorders implements Serializable {
     /**
      * 从保险公司收到的佣金值
      */
+    @ApiModelProperty("从保险公司收到的佣金值")
     private Float receive;
 
     /**
      * 添加时间
      */
+    @ApiModelProperty("添加时间")
     private Date addtime;
 
     private static final long serialVersionUID = 1L;

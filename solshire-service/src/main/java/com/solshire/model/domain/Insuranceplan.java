@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,66 +25,79 @@ public class Insuranceplan implements Serializable {
     /**
      * 性别：0女，1男
      */
+    @ApiModelProperty("性别：0女，1男")
     private Short sex;
 
     /**
      * 是否吸烟：0否，1是
      */
+    @ApiModelProperty("是否吸烟：0否，1是")
     private Short smoke;
 
     /**
      * 生日
      */
+    @ApiModelProperty("生日")
     private Date brithday;
 
     /**
      * 年龄（周岁）
      */
+    @ApiModelProperty("年龄（周岁）")
     private Integer age;
 
     /**
      * 0不追溯，1追溯
      */
+    @ApiModelProperty("0不追溯，1追溯")
     private Short retrospect;
 
     /**
      * 地区：1大陆，2香港
      */
+    @ApiModelProperty("地区：1大陆，2香港")
     private Short region;
 
     /**
      * 公司名称
      */
+    @ApiModelProperty("公司名称")
     private String corporation;
 
     /**
      * 计划名称
      */
+    @ApiModelProperty("计划名称")
     private String productname;
 
     /**
      * 缴费年期
      */
+    @ApiModelProperty("缴费年期")
     private Short payage;
 
     /**
      * 费用类型：1保费，2保额
      */
+    @ApiModelProperty("费用类型：1保费，2保额")
     private Short paytype;
 
     /**
      * 金额
      */
+    @ApiModelProperty("金额")
     private Integer money;
 
     /**
      * 币种（0：人民币，1港币，2美元）
      */
+    @ApiModelProperty("币种（0：人民币，1港币，2美元）")
     private Short currency;
 
     /**
      * 计划书PDF文件
      */
+    @ApiModelProperty("计划书PDF文件")
     private String file;
 
     private Date addtime;

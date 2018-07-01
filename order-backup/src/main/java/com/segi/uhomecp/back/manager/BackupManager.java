@@ -4,7 +4,6 @@ import com.segi.uhomecp.back.JdbcConnection;
 import com.segi.uhomecp.back.config.ConfigManager;
 import com.segi.uhomecp.back.greenplum.GPManager;
 import com.segi.uhomecp.back.mysql.DatabaseInfo;
-import com.segi.uhomecp.back.mysql.MysqlDumpUtil;
 import com.segi.uhomecp.back.mysql.Table;
 
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class BackupManager {
         String delimiter = "";
         // 初始化 配置信息
         ConfigManager configManager =  ConfigManager.instance(configPath);
-        MonitorDbManager monitorDbManager = MonitorDbManager.instance(configManager.getMonitorDbManager());
+        MonitorManager monitorDbManager = MonitorManager.instance(configManager.getMonitorDbManager(),"month");
         GPManager gpManager = GPManager.instance(configManager.getGpManager());
         for (JdbcConnection bconn: configManager.getBackupdbs()) {
             DatabaseInfo bdb = DatabaseInfo.instance(bconn);

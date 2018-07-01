@@ -46,7 +46,8 @@ public class Swagger2Config {
                 new Tag("Gen","上传文件等公共方法"),
                 new Tag("Sales","销售管理"),
                 new Tag("Commission","佣金管理"),
-                new Tag("Product","保险产品")
+                new Tag("Product","保险产品 保单预约,计划书"),
+                new Tag("Fee","保险产品,财富团队费率")
         };
         return tags;
     }

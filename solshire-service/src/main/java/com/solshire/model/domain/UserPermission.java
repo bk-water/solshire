@@ -31,13 +31,17 @@ public class UserPermission implements Serializable {
     /**
      * 父节点id
      */
-    @Column(name = "parentId")
     private Long parentId;
 
     /**
      * 权限code
      */
     private String code;
+
+    /**
+     * 图标样式
+     */
+    private String iconClass;
 
     /**
      * 判断是菜单还是按钮 1菜单 2按钮

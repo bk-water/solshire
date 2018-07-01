@@ -4,9 +4,6 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.io.Resources;
 import com.segi.uhomecp.back.JdbcConnection;
-import com.segi.uhomecp.back.greenplum.GPManager;
-import com.segi.uhomecp.back.manager.MonitorDbManager;
-import com.segi.uhomecp.back.mysql.DatabaseInfo;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;

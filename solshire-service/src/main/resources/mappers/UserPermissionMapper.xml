@@ -6,14 +6,15 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="parentId" jdbcType="BIGINT" property="parentId" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="icon_class" jdbcType="VARCHAR" property="iconClass" />
   </resultMap>
   
   <sql id="BaseColumns">
     <!-- WARNING - @mbg.generated -->
-    id, url, name, parentId, code, type
+    id, url, name, parent_id, code, type,icon_class
   </sql>
   
 </mapper>

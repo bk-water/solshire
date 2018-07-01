@@ -32,7 +32,7 @@ public class CommissionController {
     public ResultPage<AdviserOrderIncome> adviser(ProductQuery query) {
         // 调用保单查询接口
         PageInfo<AdviserOrderIncome> pageInfo = null;
-        return ResultPage.instance(AdviserOrderIncome.class).success(pageInfo);
+        return ResultPage.instance(AdviserOrderIncome.class).success(pageInfo, null);
     }
 
 
@@ -47,22 +47,19 @@ public class CommissionController {
 
     @ApiOperation(value = "产品佣金",notes = "产品佣金")
     @GetMapping("/product")
-    public ResultPage<ProductIncome> product(ProductQuery query) {
+    public ResultPage<ProductOrderIncome> product(ProductQuery query) {
         // 调用保单查询接口
-        PageInfo<ProductIncome> pageInfo = null;
-        return ResultPage.instance(ProductIncome.class).success(pageInfo);
+        PageInfo<ProductOrderIncome> pageInfo = null;
+        return ResultPage.instance(ProductOrderIncome.class).success(pageInfo,null);
     }
 
     @ApiOperation(value = "产品佣金详情",notes = "业绩酬金详情")
     @GetMapping("/product/{policyNo}")
-    public Result<ProductIncome> productDetail(ProductQuery query) {
+    public Result<ProductOrderIncomeDetail> productDetail(ProductQuery query) {
         // 调用保单查询接口
-        ProductIncome info = null;
-        return Result.instance(ProductIncome.class).success(info);
+        ProductOrderIncomeDetail info = null;
+        return Result.instance(ProductOrderIncomeDetail.class).success(info);
     }
-
-    //
-    // 产品佣金详情
 
     // 酬金发放
     // 详情

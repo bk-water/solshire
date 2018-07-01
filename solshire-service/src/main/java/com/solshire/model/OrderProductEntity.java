@@ -55,6 +55,9 @@ public class OrderProductEntity extends OrderProduct {
     @ApiModelProperty("缴费形式")
     private String patternName;
 
+    @ApiModelProperty("被保险人")
+    private String recognizeeName;
+
 
     public String getPatternName() {
         patternName = "年缴";

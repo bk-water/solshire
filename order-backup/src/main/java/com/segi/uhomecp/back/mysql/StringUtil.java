@@ -4,7 +4,6 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.sql.Types;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 

@@ -138,5 +138,10 @@ public class RichesController {
         PageInfo<LoginLogEntity> pageInfo = loginLogService.queryByPage(query);
         return ResultPage.instance(LoginLogEntity.class).success(pageInfo);
     }
+
+    /**
+     * 金牌顾问管理
+     */
+
     // TODO: 导出功能
 }

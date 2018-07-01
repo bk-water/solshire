@@ -17,7 +17,11 @@ import java.util.List;
 public class ResultPage<T> extends ResultBase{
 
     private List<T> data;
+
     private Paginator paginator;
+
+    @ApiModelProperty("合计")
+    private T total;
 
     public ResultPage<T> success(List<T> list) {
         super.success();
@@ -34,6 +38,14 @@ public class ResultPage<T> extends ResultBase{
         super.success();
         this.data = pageInfo.getList();
         this.paginator = new Paginator(pageInfo);
+        return this;
+    }
+
+    public ResultPage<T> success(PageInfo<T> pageInfo, T total) {
+        super.success();
+        this.data = pageInfo.getList();
+        this.paginator = new Paginator(pageInfo);
+        this.total =  total;
         return this;
     }
 

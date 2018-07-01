@@ -83,7 +83,7 @@ public class ShiroConfig {
         filterChainDefinitionManager.put("/v2/api-docs", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/webjars/**", "anon");//anon 可以理解为不拦截
 
-        filterChainDefinitionManager.put("/**",  "authc");//其他资源全部拦截
+        filterChainDefinitionManager.put("/**",  "anon");//其他资源全部拦截
 //        filterChainDefinitionManager.put("/ajaxLogin", "anon");//anon 可以理解为不拦截
 //        filterChainDefinitionManager.put("/statistic/**",  "anon");//静态资源不拦截
 //        filterChainDefinitionManager.put("/**",  "authc,roles[user]");//其他资源全部拦截

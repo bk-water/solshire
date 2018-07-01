@@ -2,6 +2,7 @@ package com.solshire.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.solshire.model.PageQuery;
+import com.solshire.model.ShowQuery;
 import com.solshire.model.domain.ShowData;
 import com.solshire.service.ShowDataService;
 import com.solshire.util.Result;
@@ -27,7 +28,7 @@ public class AppAdController {
 
     @ApiOperation("APP页面列表")
     @GetMapping("appShowInfo")
-    public ResultPage<ShowData> list(PageQuery query) {
+    public ResultPage<ShowData> list(ShowQuery query) {
         PageInfo<ShowData> pageInfo =showDataService.selectPageAndCount(null,query.getPageNum(),query.getPageSize());
         return ResultPage.instance(ShowData.class).success(pageInfo);
     }

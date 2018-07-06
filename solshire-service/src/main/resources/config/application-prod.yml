@@ -1,9 +1,43 @@
+server:
+  port: 8080
+  context-path: /solshire
+
+debug: false
+
+logging:
+  level:
+    root: info
+    org.mybatis: debug
+    org.springframework: info
+    org.springframework.jdbc: debug
+    com.github.trang: debug
+    com.solshire: debug
+
 spring:
   datasource:
-    url:
-    username:
-    password:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.106.176.205:3306/solshire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    username: sol_shire
+    password: !@s%$2se*&@#
     druid:
-      initial-size: 10
-      min-idle: 10
-      max-active: 100
+      initial-size: 1
+      min-idle: 1
+      max-active: 10
+#    schema: classpath:import.sql
+#t验证码生成
+  kaptcha:
+    enable: true
+    properties:
+      kaptcha.border: no
+      kaptcha.border.color: 105,179,90
+      kaptcha.textproducer.font.color: blue
+      kaptcha.image.width: "125"
+      kaptcha.image.height: "40"
+      kaptcha.textproducer.font.size: "32"
+      kaptcha.session.key: KAPTCHA_SESSION_KEY
+      kaptcha.textproducer.char.length: "4"
+      kaptcha.textproducer.font.names: 宋体,楷体,微软雅黑
+      suffix: suffix
+upload:
+  path: /var/local/appApi/public
+  url: https://wxapp.solshire.cn/

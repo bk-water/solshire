@@ -39,5 +39,5 @@ spring:
       kaptcha.textproducer.font.names: 宋体,楷体,微软雅黑
       suffix: suffix
 upload:
-  path: /koabs/static_file
+  path: /koabs/static_file/image/
   url: http://127.0.0.1:8080/

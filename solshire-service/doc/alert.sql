@@ -13,3 +13,5 @@ CHANGE COLUMN `policyNo` `policyNo` VARCHAR(32) NULL DEFAULT NULL COMMENT '保�
 -- 保险产品费率 添加时间是不是失效时间  首年年供佣金 首年月供佣金  生效时间
 -- 财富团队费率 设置佣金比率 字段问题 产品类型
 -- richer 添加金牌顾问字段
+
+--

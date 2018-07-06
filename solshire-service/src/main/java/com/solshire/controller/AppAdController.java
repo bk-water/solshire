@@ -29,7 +29,7 @@ public class AppAdController {
     @ApiOperation("APP页面列表")
     @GetMapping("appShowInfo")
     public ResultPage<ShowData> list(ShowQuery query) {
-        PageInfo<ShowData> pageInfo =showDataService.selectPageAndCount(null,query.getPageNum(),query.getPageSize());
+        PageInfo<ShowData> pageInfo =showDataService.queryByPage(query);
         return ResultPage.instance(ShowData.class).success(pageInfo);
     }
 

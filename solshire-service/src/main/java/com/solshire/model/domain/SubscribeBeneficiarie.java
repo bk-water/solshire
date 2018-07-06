@@ -1,6 +1,7 @@
 package com.solshire.model.domain;
 
 import com.google.common.base.MoreObjects;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,43 +25,51 @@ public class SubscribeBeneficiarie implements Serializable {
     /**
      * 预约订单号
      */
+    @ApiModelProperty("预约订单号")
     private Integer orderid;
 
     /**
      * 姓名
      */
+    @ApiModelProperty("姓名")
     private String name;
 
     /**
      * 拼音姓名
      */
     @Column(name = "Ename")
+    @ApiModelProperty("拼音姓名")
     private String ename;
 
     /**
      * 性别：0女，1男
      */
+    @ApiModelProperty("性别：0女，1男")
     private Short sex;
 
     /**
      * 年龄
      */
+    @ApiModelProperty("年龄")
     private Short age;
 
     /**
      * 身份证号
      */
     @Column(name = "certifyNo")
+    @ApiModelProperty("身份证号")
     private String certifyno;
 
     /**
      * 与被保人关系
      */
+    @ApiModelProperty("与被保人关系")
     private String relation;
 
     /**
      * 分配比率(同一保单总和100%)
      */
+    @ApiModelProperty("分配比率(同一保单总和100%)")
     private Float rate;
 
     private static final long serialVersionUID = 1L;

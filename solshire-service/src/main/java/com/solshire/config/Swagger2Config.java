@@ -20,7 +20,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  *
  * @author trang
  */
-@Profile("dev")
 @Configuration
 @EnableSwagger2
 @SwaggerDefinition(schemes = Scheme.HTTP, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -1,6 +1,6 @@
 server:
-  port: 8192
-  context-path: /solshire-admin-api
+  port: 8080
+  context-path: /v1
 
 debug: false
 
@@ -12,13 +12,15 @@ logging:
     org.springframework.jdbc: debug
     com.github.trang: debug
     com.solshire: debug
+  path: /var/local/solshire-web/solshire-admin-api/logs
+  file: test.log
 
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.106.176.205:3306/solshire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
-    username: sol_shire
-    password: '!@s%$2se*&@#'
+    url: jdbc:mysql://127.0.0.1:3306/solshire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    username: root
+    password: ''
     druid:
       initial-size: 1
       min-idle: 1

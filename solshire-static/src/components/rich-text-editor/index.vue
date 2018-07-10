@@ -190,6 +190,7 @@ export default {
 .el-dialog__wrapper /deep/ {
   .el-upload {
     width: 100%;
+    height: 300px;
     .el-upload-dragger {
       width: 100%;
       height: 300px;

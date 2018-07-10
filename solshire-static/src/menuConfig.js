@@ -10,21 +10,21 @@ const asideMenuConfig = [
     name: "首页",
     icon: "el-icon-menu"
   },
-  {
-    name: "财富团队成员",
-    icon: "el-icon-date",
-    path: "",
-    children: [
-      {
-        path: "/partner/list",
-        name: "事业合伙人管理"
-      },
-      {
-        path: "/adviser/list",
-        name: "顾问管理"
-      }
-    ]
-  },
+  // {
+  //   name: "财富团队成员",
+  //   icon: "el-icon-date",
+  //   path: "",
+  //   children: [
+  //     {
+  //       path: "/partner/list",
+  //       name: "事业合伙人管理"
+  //     },
+  //     {
+  //       path: "/adviser/list",
+  //       name: "顾问管理"
+  //     }
+  //   ]
+  // },
   // {
   //   name: "销售管理",
   //   icon: "el-icon-edit-outline",

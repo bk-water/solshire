@@ -1,7 +1,7 @@
 <template>
   <scroll-bar>
     <div class="logo">
-      <img src="https://img.alicdn.com/tfs/TB13UQpnYGYBuNjy0FoXXciBFXa-242-134.png" width="40">
+      <!-- <img src="https://img.alicdn.com/tfs/TB13UQpnYGYBuNjy0FoXXciBFXa-242-134.png" width="40"> -->
       <span class="site-name">业禾后台管理</span>
     </div>
     <el-menu
@@ -69,7 +69,8 @@ export default {
   overflow: hidden;
 }
 .site-name {
-  margin-left: 10px;
+  //margin-left: 10px;
+  font-size: 20px;
 }
 .sidebar-container {
   box-shadow: 2px 0 6px rgba(0, 21, 41, .35);

@@ -57,7 +57,7 @@
             <template v-else-if="scope.row.state===1">
               <el-button @click="handleClickEdit(2,scope.row)" type="text" size="small">编辑</el-button>
               <el-button @click="handleCancel(scope.row)" type="text" size="small">解约</el-button>
-              <el-button @click="handleOpenDialog2(scope.row)" type="text" size="small">直属成员</el-button>
+              <el-button @click="handleOpenDialog1(scope.row)" type="text" size="small">直属成员</el-button>
               <el-button @click="handleOpenDialog2(scope.row)" type="text" size="small">关系图</el-button>
             </template>
             <template v-else-if="scope.row.state===2">
@@ -121,8 +121,47 @@
         </span>
       </el-dialog>
 
-      <el-dialog :title="dialog1.title" :visible.sync="dialog1.visible">
+      <el-dialog :visible.sync="dialog1.visible" class="dialog1">
+        <span class="el-dialog__title" slot="title" v-html="dialog1.title"></span>
 
+        <el-form :model="dialog1.form" :inline="true">   
+          <el-form-item label="顾问ID：">
+              <el-input v-model="dialog1.form.richeid" clearable></el-input>
+          </el-form-item>
+                  
+          <el-form-item label="姓名：">
+              <el-input v-model="dialog1.form.realname" clearable></el-input>
+          </el-form-item>
+
+          <el-form-item label="证件号：">
+            <el-input v-model="dialog1.form.certifyNo" clearable></el-input>
+          </el-form-item>
+              
+          <el-form-item label="手机号：">
+            <el-input v-model="dialog1.form.tel" clearable></el-input>
+          </el-form-item>
+
+          <el-form-item>
+              <el-button type="primary" @click.native.prevent="fetch(1)">查询</el-button>
+          </el-form-item>
+        </el-form>
+
+        <el-table :data="dataList" :highlight-current-row="true" header-row-class-name="table-header" margin-top-10>
+          <el-table-column prop="richeid" label="顾问ID"></el-table-column>
+          <el-table-column prop="realname" label="姓名"></el-table-column>
+          <el-table-column prop="sex" label="性别">
+              <template slot-scope="scope">
+                {{SEX_ARRAY[scope.row.sex]}}
+              </template>
+          </el-table-column>
+          <el-table-column prop="certifyno" label="证件号"></el-table-column>
+          <el-table-column prop="tel" label="手机号"></el-table-column>
+          <el-table-column prop="addtime" label="注册时间"></el-table-column>
+        </el-table>
+
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialog1.visible = false">取 消</el-button>
+        </span>
       </el-dialog>
 
 
@@ -130,7 +169,6 @@
         <el-tree :data="dialog2.tree" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialog2.visible = false">取 消</el-button>
-          <el-button type="primary" @click="handleSubmit">确 定</el-button>
         </span>
       </el-dialog>
     </div>
@@ -174,10 +212,18 @@ export default {
       dialog1: {
         title: "",
         visible: false,
-        tree: null
+        paginator: null,
+        form: {
+          richeid: "",
+          name: "",
+          certifyNo: "",
+          tel: ""
+        },
+        dataList: []
       },
       dialog2: {
-        visible: false
+        visible: false,
+        tree: null
       },
       page: {
         start: 1,
@@ -256,6 +302,13 @@ export default {
         }
       }
       this.dialog.visible = true;
+    },
+    async handleOpenDialog1(row) {
+      this.dialog1.title = `<span>顾问ID：${row.richeid}</span><span>姓名：${
+        row.realname
+      }</span><span>级别：${row.levelName}</span>`;
+
+      this.dialog1.visible = true;
     },
     async handleOpenDialog2(row) {
       try {
@@ -456,6 +509,12 @@ export default {
   .el-dialog {
     max-width: 700px;
 
+    .el-dialog__title {
+      span {
+        margin-right: 20px;
+      }
+    }
+
     .el-form-item {
       .el-select {
         &.sex {
@@ -470,6 +529,12 @@ export default {
           width: 515px;
         }
       }
+    }
+  }
+  .dialog1 {
+    .el-dialog {
+      max-width: 2000px;
+      width: 60%;
     }
   }
 }

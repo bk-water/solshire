@@ -72,7 +72,7 @@
   </select>
 
   <select id="queryLevel" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-    SELECT getSpellFull(#{richeid},#{type})
+    SELECT getlevelNum(#{richeid},#{type})
   </select>
 
   <select id="queryByCertifyNos" parameterType="java.lang.String" resultMap="BaseResultMap">

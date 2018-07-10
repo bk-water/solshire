@@ -24,7 +24,7 @@ public class RichesEntity extends Riches{
      * 财富等级名称
      */
     @ApiModelProperty("财富等级名称")
-    private String levelName = "高级管理员";
+    private String levelName = "";
 
     /**
      * 直属上级名称

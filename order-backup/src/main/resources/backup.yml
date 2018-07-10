@@ -30,3 +30,5 @@ greenplum:
   username: order2
   password: root3
   classDriver: com.mysql.jdbc.Driver
+  gpfdistUrl: ''
+  delimiter: ,

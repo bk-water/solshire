@@ -28,6 +28,8 @@ public class ConfigManager {
 
     private List<String> tableNames;
 
+    private GPConfig gpConfig;
+
     public static ConfigManager instance = null;
 
     private ConfigManager() {

@@ -34,6 +34,8 @@ public class BackupManager {
             String backNum = "数据库信息+月份";
             // 获取所有配置的mysql 数据库信息 循环备份
             for (String tableName : configManager.getTableNames()) {
+                // 导出数据条数
+                Integer exportNum = 0;
                 Table table = bdb.getDbTableInfo(tableName);
                 // 导出csv
                 bdb.dumpTableDate(configManager.getDumpConfig(),tableName);
@@ -42,9 +44,20 @@ public class BackupManager {
                 gpManager.createExternalTable(createGpExtTableSql,tableName);
                 // 导入数据
                 gpManager.importDateFromExtTable(table,backNum);
+                // 获取导入数据 条数
+                Integer importNum = 0;
                 // 校验两边数据一致性(数目是否一致)
+                if (exportNum.equals(importNum)) {
+                    // 备份成功
+                } else {
+                    // 备份失败
+                    // 删除gp 中的导入数据
+                    // 删除导入文件
+                    // 记录错误日志
+                }
 
-                // 备份成功
+                // 删除外部临时表
+
             }
         }
 

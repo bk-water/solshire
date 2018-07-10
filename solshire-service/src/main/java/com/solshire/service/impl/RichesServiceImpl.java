@@ -64,6 +64,7 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     public void save(Riches info) {
         if (info.getRicheid() == null) {
             info.setAddtime(new Date());
+            info.setState((short) 0);
             insert(info);
         } else {
             update(info);

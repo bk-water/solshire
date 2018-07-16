@@ -89,7 +89,7 @@ public class RichesController {
     public Result<RichesEntity> updateUser(@RequestBody RichesEntity user) {
         user.setMaster(0);
         richesService.save(user);
-        return Result.instance(RichesEntity.class).success(new RichesEntity());
+        return Result.instance(RichesEntity.class).success(user);
     }
 
 
@@ -117,7 +117,7 @@ public class RichesController {
     // 下级关系图
     @ApiOperation(value = "下级关系树",notes = "下级关系树")
     @GetMapping("/tree/{id}")
-    public Result<RichesEntity> getChild(@PathVariable Integer id) {
+    public Result<List<RichesEntity>> getChild(@PathVariable Integer id) {
         List<RichesEntity> list =richesService.queryChildren(id);
         return Result.instance(List.class).success(list);
     }

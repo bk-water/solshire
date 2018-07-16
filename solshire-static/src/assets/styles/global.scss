@@ -1,0 +1,110 @@
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, Arial, sans-serif;
+}
+
+[class*=" v-"],
+[class^="v-"] {
+  position: relative;
+}
+
+[class*=" s-icon-"],
+[class^="s-icon-"] {
+  font-family: "solshire-icons" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+[float-right] {
+  float: right;
+}
+[float-left] {
+  float: left;
+}
+@each $var in 10, 20 {
+  @each $var1 in top, right, bottom, left {
+    [margin-#{$var1}-#{$var}] {
+      margin-#{$var1}: #{$var}px;
+    }
+    [padding-#{$var1}-#{$var}] {
+      padding-#{$var1}: #{$var}px;
+    }
+  }
+}
+
+[no-padding] {
+  padding: 0;
+}
+
+@each $var in start, end {
+  [justify-#{$var}] {
+    justify-content: flex-#{$var};
+  }
+}
+
+@each $var in block, inline, flex {
+  [display-#{$var}],
+  .display-#{$var} {
+    display: #{$var};
+  }
+}
+.hidden {
+  display: none;
+}
+
+@each $var in left, right, start, end, center, justify {
+  [text-#{$var}] {
+    text-align: #{$var};
+  }
+}
+[text-wrap] {
+  white-space: normal;
+}
+[text-nowrap] {
+  white-space: nowrap;
+}
+
+@each $var in uppercase, lowercase, capitalize {
+  [text-#{$var}] {
+    text-transform: #{$var};
+  }
+}

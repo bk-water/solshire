@@ -31,7 +31,9 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     public PageInfo<RichesEntity> queryByPage(RichesQuery query) {
         PageHelper.startPage(query.getPageNum(), query.getPageSize());
         List<RichesEntity> result = richesMapper.queryByPage(query);
-        //
+        for (RichesEntity info : result) {
+            info.setLevelName(getLevel(info.getRicheid()));
+        }
         return new PageInfo<>(result);
     }
 
@@ -39,15 +41,20 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     public List<RichesEntity> queryChildren(Integer richeid) {
         RichesQuery query = new RichesQuery();
         query.setRicheid(richeid);
-        //
-        return richesMapper.queryChildren(query);
+        List<RichesEntity> result = richesMapper.queryChildren(query);
+        for (RichesEntity info : result) {
+            info.setLevelName(getLevel(info.getRicheid()));
+        }
+        return result;
     }
 
     @Override
     public PageInfo<RichesEntity> queryChildrenByPage(RichesQuery query) {
         PageHelper.startPage(query.getPageNum(), query.getPageSize());
-        //
         List<RichesEntity> result = richesMapper.queryChildren(query);
+        for (RichesEntity info : result) {
+            info.setLevelName(getLevel(info.getRicheid()));
+        }
         return new PageInfo<>(result);
     }
 
@@ -57,6 +64,7 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
         // 获取级别
         // Integer level = richesMapper.queryLevel(richeId,1);
         RichesEntity result = BeanCopierUtils.copyProperties(info,RichesEntity.class);
+        result.setLevel(getLevel(richeId));
         return result;
     }
 
@@ -101,5 +109,37 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
             });
         }
         return map;
+    }
+
+    String getLevel(Integer richId) {
+        String levelName = null;
+        Integer levelNum = richesMapper.queryLevel(richId,1);
+        switch (levelNum) {
+            case 1:
+                levelName = "顾问";
+                break;
+            case 2:
+                levelName = "经理";
+                break;
+            case 3:
+                levelName = "高级经理";
+                break;
+            case 4:
+                levelName = "总监";
+                break;
+            case 5:
+                levelName = "高级总监";
+                break;
+            case 6:
+                levelName = "资深总监";
+                break;
+            case 7:
+                levelName = "事业合伙人";
+                break;
+            default:
+                levelName = "顾问";
+                break;
+        }
+        return levelName;
     }
 }

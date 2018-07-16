@@ -2,6 +2,8 @@ package com.segi.uhomecp.back.manager;
 
 import com.segi.uhomecp.back.JdbcConnection;
 import com.segi.uhomecp.back.config.ConfigManager;
+import com.segi.uhomecp.back.config.DumpConfig;
+import com.segi.uhomecp.back.config.GPConfig;
 import com.segi.uhomecp.back.greenplum.GPManager;
 import com.segi.uhomecp.back.mysql.DatabaseInfo;
 import com.segi.uhomecp.back.mysql.Table;
@@ -23,23 +25,24 @@ public class BackupManager {
      * @throws IOException
      */
     public static void backup(String configPath) throws IOException, SQLException {
-        String gpfdistUrl = "";
-        String delimiter = "";
+
         // 初始化 配置信息
         ConfigManager configManager =  ConfigManager.instance(configPath);
-        MonitorManager monitorDbManager = MonitorManager.instance(configManager.getMonitorDbManager(),"month");
         GPManager gpManager = GPManager.instance(configManager.getGpManager());
+        DumpConfig dumpConfig = configManager.getDumpConfig();
+        MonitorManager monitorDbManager = MonitorManager.instance(configManager.getMonitorDbManager(),dumpConfig.month);
+        GPConfig gpConfig = configManager.getGpConfig();
         for (JdbcConnection bconn: configManager.getBackupdbs()) {
             DatabaseInfo bdb = DatabaseInfo.instance(bconn);
-            String backNum = "数据库信息+月份";
+            String backNum = bconn.ip + bconn.schema + dumpConfig.month;
             // 获取所有配置的mysql 数据库信息 循环备份
             for (String tableName : configManager.getTableNames()) {
                 // 导出数据条数
                 Integer exportNum = 0;
                 Table table = bdb.getDbTableInfo(tableName);
                 // 导出csv
-                bdb.dumpTableDate(configManager.getDumpConfig(),tableName);
-                String createGpExtTableSql = bdb.getCreateGPExternalTable(tableName,delimiter,gpfdistUrl);
+                bdb.dumpTableDate(dumpConfig,tableName);
+                String createGpExtTableSql = bdb.getCreateGPExternalTable(tableName,gpConfig.getDelimiter(),gpConfig.getGpfdistUrl());
                 // 创建临时表
                 gpManager.createExternalTable(createGpExtTableSql,tableName);
                 // 导入数据

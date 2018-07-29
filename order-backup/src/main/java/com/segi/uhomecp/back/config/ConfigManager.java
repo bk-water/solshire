@@ -77,6 +77,7 @@ public class ConfigManager {
         configManager.monitorDbManager = JdbcConnection.buildMonitir((Map<String, Object>)mysqlMap.get("monitordb"));
         Map<String, Object> gpMap = (Map<String, Object>) ymalMap.get("greenplum");
         configManager.gpManager = JdbcConnection.buildGP(gpMap);
+        configManager.gpConfig = GPConfig.build(gpMap);
         return configManager;
     }
 
@@ -98,5 +99,9 @@ public class ConfigManager {
 
     public List<String> getTableNames() {
         return tableNames;
+    }
+
+    public GPConfig getGpConfig() {
+        return gpConfig;
     }
 }

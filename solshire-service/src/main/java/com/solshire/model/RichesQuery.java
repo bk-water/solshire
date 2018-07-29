@@ -17,6 +17,11 @@ public class RichesQuery extends PageQuery{
     private Integer richeid;
 
     /**
+     * 父級節點Id
+     */
+    private Integer parentRicheId;
+
+    /**
      * 财富团队成员：bit0注册用户，bit1财富成员，bit2客户（保单持有人）
      * (按位运算)
      *  001 010 011 100 101 110 111

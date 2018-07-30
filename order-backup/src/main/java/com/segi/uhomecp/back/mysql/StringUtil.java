@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.sql.Types;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
@@ -115,41 +116,55 @@ public class StringUtil {
 
 	}
 
-	public static String getColumnType(int databaseType) {
-		String colType = "varchar(256)";
-		
-//		switch (databaseType) {
-//		case Types.DECIMAL:
-//			colType = "decimal";
-//		case Types.REAL:
-//			colType = "Float";
-//			break;
-//
-//		case Types.INTEGER:
-//		case Types.BIGINT:
-//		case Types.TINYINT:
-//
-//			colType = "Integer";
-//			break;
-//		case Types.VARCHAR:
-//		case Types.CHAR:
-//		case Types.LONGVARBINARY:
-//		case Types.LONGVARCHAR:
-//			colType = "String";
-//			break;
-//
-//		case Types.DATE:
-//		case Types.TIMESTAMP:
-//			colType="Date";
-//			break;
-//		case Types.BIT:
-//			colType="Boolean";
-//			break;
-//		default:
-//			System.out.println("找不到数据类型："+databaseType);
-//			break;
-//		}
-
+	public static String getColumnType(String databaseType) {
+		String colType;
+		switch (databaseType) {
+			case "enum":
+				colType = "enum";
+				break;
+			case "tinyint":
+				colType = "smallint";
+				break;
+			case "mediumint":
+				colType = "integer";
+				break;
+			case "tinyint unsigned":
+				colType = "smallint";
+				break;
+			case "mediumint unsigned":
+				colType = "integer";
+				break;
+			case "int unsigned":
+				colType = "bigint";
+				break;
+			case "bigint unsigned":
+				colType = "numeric(20)";
+				break;
+			case "double":
+				colType = "double precision";
+				break;
+			case "float":
+				colType = "real";
+				break;
+			case "datetime":
+				colType = "timestamp";
+				break;
+			case "longtext":
+				colType = "text";
+				break;
+			case "mediumtext":
+				colType = "text";
+				break;
+			case "blob":
+				colType = "bytea";
+				break;
+			case "mediumblob":
+				colType = "bytea";
+				break;
+		default:
+			colType = databaseType;
+			break;
+		}
 		return colType;
 	}
 

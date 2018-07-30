@@ -56,6 +56,8 @@ public class DatabaseInfo extends Database{
 				tempColumn = new Column();
 				tempColumn.setColumnName(rscol.getString("COLUMN_NAME"));
 				tempColumn.setColumnType(Integer.parseInt(rscol.getString("DATA_TYPE")));
+				// 数据类型
+				tempColumn.setColumnTypeName(rscol.getString("TYPE_NAME"));
 
 				String remarks = rscol.getString("REMARKS");
 				if (remarks.length() < 1)
@@ -118,7 +120,7 @@ public class DatabaseInfo extends Database{
 		createExternalTable.append(table.getTableName()).append("_ext").append("(");
 		for (Column column : table.getColumnList()) {
 			createExternalTable.append(column.getColumnName()).append(" ")
-					.append(StringUtil.getColumnType(column.getColumnType())).append(",");
+					.append(StringUtil.getColumnType(column.getColumnTypeName())).append(",");
 
 		}
 		createExternalTable.append(")").append("LOCATION ('").append(gpfdistUrl).append("')")
@@ -140,12 +142,13 @@ public class DatabaseInfo extends Database{
 
 
 	public static void main(String[] args) throws SQLException {
-//		String url = "jdbc:mysql://47.75.10.26:3306/solshire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false";
-//		String classDriver = "com.mysql.jdbc.Driver";
-//		String username = "cyd1991";
-//		String password = "MY78sdQPl11!";
-//		DatabaseInfo databaseInfo = DatabaseInfo.instance(classDriver,url,username,password);
-////		Table table = databaseInfo.getDbTableInfo("user_permission");
+		String url = "jdbc:mysql://47.75.10.26:3306/solshire?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false";
+		String classDriver = "com.mysql.jdbc.Driver";
+		String username = "cyd1991";
+		String password = "MY78sdQPl11!";
+		JdbcConnection jdbcConnection = new JdbcConnection(classDriver,url,username,password);
+		DatabaseInfo databaseInfo = DatabaseInfo.instance(jdbcConnection);
+		Table table = databaseInfo.getDbTableInfo("user_permission");
 ////		System.out.printf("Table Info: "+ new Gson().toJson(table));
 //		databaseInfo.jdbcConn.close();
 //		System.out.printf(databaseInfo.getCreateGPExternalTable("user_permission",","

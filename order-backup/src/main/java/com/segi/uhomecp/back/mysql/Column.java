@@ -15,6 +15,11 @@ public class Column {
 	 * 列数据类型
 	 */
 	private int columnType;
+
+	/**
+	 * 列数据类型字符串
+	 */
+	private String columnTypeName;
 	
 	/**
 	 * 列注释
@@ -94,5 +99,12 @@ public class Column {
 	public void setNullAble(boolean isNullAble) {
 		this.isNullAble = isNullAble;
 	}
-	
+
+	public String getColumnTypeName() {
+		return columnTypeName;
+	}
+
+	public void setColumnTypeName(String columnTypeName) {
+		this.columnTypeName = columnTypeName;
+	}
 }

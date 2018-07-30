@@ -40,7 +40,7 @@ public class RichesServiceImpl extends BaseServiceImpl<Riches, Integer> implemen
     @Override
     public List<RichesEntity> queryChildren(Integer richeid) {
         RichesQuery query = new RichesQuery();
-        query.setRicheid(richeid);
+        query.setParentRicheId(richeid);
         List<RichesEntity> result = richesMapper.queryChildren(query);
         for (RichesEntity info : result) {
             info.setLevelName(getLevel(info.getRicheid()));

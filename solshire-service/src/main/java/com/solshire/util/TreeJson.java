@@ -1,6 +1,8 @@
 package com.solshire.util;
 
 import com.google.common.collect.Lists;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -8,6 +10,9 @@ import java.util.List;
  * Author: koabs
  * 2018/6/18.
  */
+
+@Getter
+@Setter
 public class TreeJson {
     private String url;
     private String name;

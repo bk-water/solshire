@@ -63,7 +63,6 @@ public class BackupManager {
                 // 删除外部临时表
             }
         }
-
         // 全部备份完成后 发送备份情况邮件到指定邮箱
     }
 

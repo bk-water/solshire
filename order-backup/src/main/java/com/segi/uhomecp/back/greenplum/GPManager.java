@@ -72,6 +72,4 @@ public class GPManager {
         statement.close();
         return total;
     }
-
-
 }

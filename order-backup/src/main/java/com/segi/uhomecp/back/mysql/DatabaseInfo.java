@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * 数据库信息获得操作类
@@ -138,6 +139,22 @@ public class DatabaseInfo extends Database{
 //				"/tmp/mysql-export-csv","201809","solshire","user_permission", "/usr/local/mysql/bin");
 //		MysqlDumpUtil.dumpMysqlData("47.75.10.26","3306","cyd1991","MY78sdQPl11!",
 //				"/tmp/mysql-export-csv","201809","solshire","user_permission", "/usr/local/mysql/bin");
+	}
+
+
+	public Integer getBackUpDataCount(String tableName, String conditions) throws SQLException {
+		Integer count = 0;
+		ResultSet rs = null;
+		String querySql = "SELECT count(*) from " + tableName + " WHERE " + conditions;
+		Statement statement =  jdbcConn.getConne().createStatement();
+		rs = statement.executeQuery(querySql);
+		while(rs.next()){
+			count = rs.getInt(1);
+		}
+		rs.close();
+		statement.close();
+		jdbcConn.close();
+		return count;
 	}
 
 

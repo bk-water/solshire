@@ -36,7 +36,7 @@ public class MysqlDumpUtil {
     // mysqldump --skip-lock-tables -h47.75.10.26 -P3306 -ucyd1991 -pMY78sdQPl11! -w 'id=4'  -t  -T/tmp/mysql-export-csv solshire user_permission --fields-terminated-by=','
     public static void dumpMysqlData(String ip,String port,String username,String password,
                                      String exportFolder,String partitionMonth,String schema,
-                                     String tableName,String mysqldumpPath) throws IOException {
+                                     String tableName,String mysqldumpPath,String conditions) throws IOException {
         String path;
         if (!Strings.isNullOrEmpty(exportFolder)) {
             path = exportFolder + "/" + ip + "/" + schema + "/" + tableName + "/" + partitionMonth;
@@ -47,7 +47,7 @@ public class MysqlDumpUtil {
         }
         System.out.println("导出路径:" + path);
         String commandStr = mysqldumpPath + "/mysqldump --skip-lock-tables -h" +
-                ip + " -P" + port + " -u" + username + " -p" + password + " -w 'id=4'  -t  -T" +
+                ip + " -P" + port + " -u" + username + " -p" + password + " -w '"+conditions+"'  -t  -T" +
                 path + " " + schema + " " + tableName + " --fields-terminated-by=','";
         // 导出时先删除目录和里面文件再新建目录
         System.out.println(commandStr);
@@ -65,6 +65,6 @@ public class MysqlDumpUtil {
     public static void dumpMysqlData(DumpConfig config, JdbcConnection conn, String tableName) throws IOException {
         MysqlDumpUtil.dumpMysqlData(conn.ip,conn.port,conn.username,conn.password,
                 config.exportFolder,config.month,conn.schema,
-                tableName,config.binPath);
+                tableName,config.binPath,config.conditions);
     }
 }

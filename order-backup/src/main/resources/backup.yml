@@ -20,6 +20,7 @@ mysql:
     binPath: /usr/local/mysql/bin
     month: 201809
     exportFolder: /tmp/mysql-export-csv
+    conditions: partition_month=201809
   monitordb:
     url: 3308
     username: order2

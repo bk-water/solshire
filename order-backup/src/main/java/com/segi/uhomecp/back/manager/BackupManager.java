@@ -38,7 +38,7 @@ public class BackupManager {
             // 获取所有配置的mysql 数据库信息 循环备份
             for (String tableName : configManager.getTableNames()) {
                 // 导出数据条数
-                Integer exportNum = 0;
+                Integer exportNum = bdb.getBackUpDataCount(tableName,dumpConfig.conditions);
                 Table table = bdb.getDbTableInfo(tableName);
                 // 导出csv
                 bdb.dumpTableDate(dumpConfig,tableName);
@@ -46,21 +46,21 @@ public class BackupManager {
                 // 创建临时表
                 gpManager.createExternalTable(createGpExtTableSql,tableName);
                 // 导入数据
-                gpManager.importDateFromExtTable(table,backNum);
+                Integer importNum = gpManager.importDateFromExtTable(table,backNum);
                 // 获取导入数据 条数
-                Integer importNum = 0;
+
                 // 校验两边数据一致性(数目是否一致)
                 if (exportNum.equals(importNum)) {
                     // 备份成功
+                    monitorDbManager.info("备份成功",backNum+"导入：" +importNum + "导出：" + exportNum,backNum,tableName);
                 } else {
                     // 备份失败
                     // 删除gp 中的导入数据
                     // 删除导入文件
                     // 记录错误日志
+                    monitorDbManager.info("备份失败",backNum+"导入：" +importNum + "导出：" + exportNum,backNum,tableName);
                 }
-
                 // 删除外部临时表
-
             }
         }
 
